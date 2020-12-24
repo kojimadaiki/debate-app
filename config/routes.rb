@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :coaches, controllers: {
+  sessions:      'coaches/sessions',
+  registrations: 'coaches/registrations'
+}
+devise_for :users, controllers: {
+  sessions:      'users/sessions',
+  registrations: 'users/registrations'
+}
+  root "top#index"
 end
