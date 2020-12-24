@@ -6,10 +6,14 @@ class Coach < ApplicationRecord
 
   has_many :debates
   has_many :comments
-  belongs_to :bulletin_board
+  # belongs_to :bulletin_board
 
   with_options presence: true do
     validates :name
     validates :teach_style
   end 
+
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'must use half-width alphanumeric'
+
 end
