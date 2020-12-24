@@ -1,0 +1,43 @@
+  <div class="header">
+    <div class="header-left">
+      <h2>ロゴ</h2>
+    </div>
+    <div class="header-right">
+      <h2>掲示板</h2>
+      <h2>コンセプト</h2>
+      <h2>よくある質問</h2>
+      <h2>新規登録</h2>
+    </div>
+  </div>
+  <div class="main">
+    <div class="top">
+      <h1>キャッチコピー</h1>
+      <div class="sign_in">
+      <% unless user_signed_in? %>
+        <%= link_to 'user新規登録する', new_user_registration_path %>
+        <%= link_to 'userログインする', new_user_session_path %>
+      <% else %>
+        <%= link_to 'userログアウトする', destroy_user_session_path, method: :delete, class: "logout" %>
+      <% end %>
+      </div>
+      <div class="log_in">
+      <% unless user_signed_in? %>
+        <%= link_to 'coach新規登録する', new_coach_registration_path %>
+        <%= link_to 'coachログインする', new_coach_session_path %>
+      <% else %>
+        <%= link_to 'coachログアウトする', destroy_coach_session_path, method: :delete, class: "logout" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="concept">
+      <h2>コンセプト</h2>
+    </div>
+    <div class="question">
+      <h2>よくある質問</h2>
+    </div>
+  </div>
+  <div class="footer">
+   <p>©︎</p>
+  </div>
