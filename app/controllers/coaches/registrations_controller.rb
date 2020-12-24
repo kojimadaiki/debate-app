@@ -29,12 +29,6 @@ class Coaches::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  protected
-  
-  def after_sign_up_path_for(resource)
-    new_coach_registration_path
-  end
-
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
   # in to be expired now. This is useful if the user wants to
