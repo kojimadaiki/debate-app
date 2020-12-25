@@ -26,7 +26,7 @@
 # association
 -has_many :debates, through: coach_debate
 -has_many :comments
--belongs_to :bulletin_board
+-has_many :boards
 
 
 ## debatesテーブル
@@ -57,7 +57,7 @@
 -has_one_attached :image
 
 
-## bulletin_boardsテーブル
+## boardsテーブル
 
 
 | Column        | Type       | Options                        |
@@ -67,7 +67,7 @@
 | coach         | references | null: false, foreign_key: true |
 
 # association
--has_many :coach
+-has_many :coaches
 
 
 ## user_debatesテーブル
