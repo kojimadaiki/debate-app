@@ -14,15 +14,15 @@ RSpec.describe Board, type: :model do
 
     context '新規投稿できない時' do
       it 'titleが空の時' do
-        @board.title = ""
+        @board.title = ''
         @board.valid?
-        expect(@board.errors.full_messages).to include("教える種目を入力してください")
+        expect(@board.errors.full_messages).to include('教える種目を入力してください')
       end
 
       it 'timeが空の時' do
-        @board.start_time = ""
+        @board.start_time = ''
         @board.valid?
-        expect(@board.errors.full_messages).to include("時間を入力してください")
+        expect(@board.errors.full_messages).to include('時間を入力してください')
       end
     end
   end

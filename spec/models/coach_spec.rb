@@ -16,13 +16,13 @@ RSpec.describe Coach, type: :model do
       it 'nameが空の時' do
         @coach.name = ''
         @coach.valid?
-        expect(@coach.errors.full_messages).to include("名前を入力してください")
+        expect(@coach.errors.full_messages).to include('名前を入力してください')
       end
 
       it 'emailが空の時' do
         @coach.email = ''
         @coach.valid?
-        expect(@coach.errors.full_messages).to include("メールアドレスを入力してください")
+        expect(@coach.errors.full_messages).to include('メールアドレスを入力してください')
       end
 
       it 'emailに@が含まれていない' do
@@ -42,7 +42,7 @@ RSpec.describe Coach, type: :model do
       it 'passwordが空である' do
         @coach.password = ''
         @coach.valid?
-        expect(@coach.errors.full_messages).to include("パスワードを入力してください")
+        expect(@coach.errors.full_messages).to include('パスワードを入力してください')
       end
 
       it 'passwordが英数字で構成されていない' do
@@ -63,13 +63,13 @@ RSpec.describe Coach, type: :model do
         @coach.password = 'aaa1aaa'
         @coach.password_confirmation = 'aaa1aaaa'
         @coach.valid?
-        expect(@coach.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+        expect(@coach.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
       end
 
       it 'teach_styleが空' do
         @coach.teach_style = ''
         @coach.valid?
-        expect(@coach.errors.full_messages).to include("教えられる種目を入力してください")
+        expect(@coach.errors.full_messages).to include('教えられる種目を入力してください')
       end
     end
   end

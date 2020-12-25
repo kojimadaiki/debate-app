@@ -16,13 +16,13 @@ RSpec.describe User, type: :model do
       it 'nameが空の時' do
         @user.name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("名前を入力してください")
+        expect(@user.errors.full_messages).to include('名前を入力してください')
       end
 
       it 'emailが空の時' do
         @user.email = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("メールアドレスを入力してください")
+        expect(@user.errors.full_messages).to include('メールアドレスを入力してください')
       end
 
       it 'emailに@が含まれていない' do
@@ -42,7 +42,7 @@ RSpec.describe User, type: :model do
       it 'passwordが空である' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワードを入力してください")
+        expect(@user.errors.full_messages).to include('パスワードを入力してください')
       end
 
       it 'passwordが英数字で構成されていない' do
@@ -63,13 +63,13 @@ RSpec.describe User, type: :model do
         @user.password = 'aaa1aaa'
         @user.password_confirmation = 'aaa1aaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+        expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
       end
 
       it 'styleが空' do
         @user.style = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("専門種目を入力してください")
+        expect(@user.errors.full_messages).to include('専門種目を入力してください')
       end
     end
   end

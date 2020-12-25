@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :correct_post,only: [:edit]
+  before_action :correct_post, only: [:edit]
 
   def index
     @boards = Board.all
@@ -45,9 +45,6 @@ class BoardsController < ApplicationController
 
   def correct_post
     @board = Board.find(params[:id])
-    unless @board.coach_id == current_coach.id
-      redirect_to boards_path
-    end
+    redirect_to boards_path unless @board.coach_id == current_coach.id
   end
-
 end
