@@ -38,6 +38,6 @@ class BoardsController < ApplicationController
   private
 
   def board_parameter
-    params.require(:board).permit(:name, :title, :start_time).merge(coach_id: current_coach.id)
+    params.require(:board).permit(:name, :title, :start_time).merge(coach_id: current_coach.id, name: current_coach.name)
   end
 end
