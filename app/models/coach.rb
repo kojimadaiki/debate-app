@@ -6,7 +6,7 @@ class Coach < ApplicationRecord
 
   has_many :debates
   has_many :comments
-  belongs_to :board
+  has_many :boards
 
   with_options presence: true do
     validates :name
