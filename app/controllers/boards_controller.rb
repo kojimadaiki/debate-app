@@ -19,7 +19,7 @@ class BoardsController < ApplicationController
   def destroy
     @board = Board.find(params[:id])
     @board.destroy
-    redirect_to board_path
+    redirect_to boards_path
   end
 
   def edit
@@ -38,6 +38,6 @@ class BoardsController < ApplicationController
   private
 
   def board_parameter
-    params.require(:board).permit(:title, :start_time)
+    params.require(:board).permit(:name, :title, :start_time).merge(coach_id: current_coach.id)
   end
 end
