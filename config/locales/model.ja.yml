@@ -21,3 +21,6 @@ ja:
         password: パスワード
         password_confirmation: パスワード（確認用）
         teach_style: 教えられる種目
+      board:
+        title: 教える種目
+        start_time: 時間
