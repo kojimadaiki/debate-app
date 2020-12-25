@@ -1,4 +1,6 @@
 class BoardsController < ApplicationController
+  before_action :correct_post,only: [:edit]
+
   def index
     @boards = Board.all
   end
@@ -40,4 +42,12 @@ class BoardsController < ApplicationController
   def board_parameter
     params.require(:board).permit(:name, :title, :start_time).merge(coach_id: current_coach.id, name: current_coach.name)
   end
+
+  def correct_post
+    @board = Board.find(params[:id])
+    unless @board.coach_id == current_coach.id
+      redirect_to boards_path
+    end
+  end
+
 end
