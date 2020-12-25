@@ -1,0 +1,18 @@
+<p id="notice"></p>
+
+<p>
+  <strong>タイトル</strong>
+  <%= @board.title %>
+</p>
+
+<p>
+  <strong>時間</strong>
+  <%= @board.start_time.strftime("%Y-%m-%d %H:%M") %>〜
+</p>
+
+
+<%  if current_coach.id == @board.coach_id %>
+  <%= link_to '編集する', edit_board_path(@board) %> |
+  <%= link_to '削除する', board_path(@board.id), method: :delete %> |
+<% end %>
+<%= link_to '戻る', boards_path %>

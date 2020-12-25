@@ -1,0 +1,22 @@
+<p id="notice"></p>
+
+<h1>コーチの討論時間一覧</h1>
+
+
+
+<br>
+<% if coach_signed_in? %>
+<%= link_to '討論予定時間をいれる', new_board_path %>
+<% end %>
+
+<%= month_calendar events: @boards do |date, board| %>
+  <%= date.day %>
+
+  <% board.each do |board| %>
+    <div>
+      ○<%= board.name %><br>
+      <%= link_to board.title, board_path(board) %><br>
+      <%= link_to board.start_time.strftime('%H:%M'), board_path(board) %><%= "〜" %>
+    </div>
+  <% end %>
+<% end %>
