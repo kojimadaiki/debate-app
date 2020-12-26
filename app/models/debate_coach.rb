@@ -1,0 +1,2 @@
+class DebateCoach < ApplicationRecord
+end
