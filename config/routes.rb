@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :boards
+  resources :debates
   devise_for :coaches, controllers: {
   sessions:      'coaches/sessions',
   registrations: 'coaches/registrations'
