@@ -1,0 +1,2 @@
+class Debate < ApplicationRecord
+end
