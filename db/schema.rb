@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_26_023647) do
+ActiveRecord::Schema.define(version: 2020_12_29_080429) do
 
   create_table "boards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.string "title", null: false
     t.datetime "start_time", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -35,9 +35,21 @@ ActiveRecord::Schema.define(version: 2020_12_26_023647) do
     t.index ["reset_password_token"], name: "index_coaches_on_reset_password_token", unique: true
   end
 
-  create_table "debate_coaches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "coach_id"
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content"
     t.bigint "debate_id"
+    t.bigint "user_id"
+    t.bigint "coach_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coach_id"], name: "index_comments_on_coach_id"
+    t.index ["debate_id"], name: "index_comments_on_debate_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "debate_coaches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "debate_id"
+    t.bigint "coach_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["coach_id"], name: "index_debate_coaches_on_coach_id"
@@ -45,8 +57,8 @@ ActiveRecord::Schema.define(version: 2020_12_26_023647) do
   end
 
   create_table "debate_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
     t.bigint "debate_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["debate_id"], name: "index_debate_users_on_debate_id"
@@ -73,6 +85,9 @@ ActiveRecord::Schema.define(version: 2020_12_26_023647) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "coaches"
+  add_foreign_key "comments", "debates"
+  add_foreign_key "comments", "users"
   add_foreign_key "debate_coaches", "coaches"
   add_foreign_key "debate_coaches", "debates"
   add_foreign_key "debate_users", "debates"
