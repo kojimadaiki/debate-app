@@ -4,7 +4,8 @@ class Coach < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :debates
+  has_many :debate_coaches, dependent: :destroy
+  has_many :debates, through: :debate_coaches
   has_many :comments
   has_many :boards
 
