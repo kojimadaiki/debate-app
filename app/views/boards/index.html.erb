@@ -6,9 +6,9 @@
 
 <br>
 <% if coach_signed_in? %>
-<%= link_to '討論予定時間をいれる', new_board_path %>/
-<%= link_to 'トップへ戻る', root_path %>
+  <%= link_to '討論予定時間をいれる', new_board_path %>/
 <% end %>
+<%= link_to 'トップへ戻る', root_path %>
 
 <%= month_calendar events: @boards do |date, board| %>
   <%= date.day %>
