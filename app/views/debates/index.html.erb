@@ -15,7 +15,7 @@
       <div class="sign_in">
       <% unless coach_signed_in? %>
       <% unless user_signed_in? %>
-        <%= link_to 'user新規登録する', new_user_registration_path %>
+        <%= link_to 'user新規登録する', new_user_registration_path %>/
         <%= link_to 'userログインする', new_user_session_path %>
       <% else %>
         <%= link_to 'userログアウトする', destroy_user_session_path, method: :delete, class: "logout" %>
@@ -25,18 +25,25 @@
       <div class="log_in">
       <% unless user_signed_in? %>
       <% unless coach_signed_in? %>
-        <%= link_to 'coach新規登録する', new_coach_registration_path %>
+        <%= link_to 'coach新規登録する', new_coach_registration_path %>/
         <%= link_to 'coachログインする', new_coach_session_path %>
       <% else %>
-        <%= link_to 'coachログアウトする', destroy_coach_session_path, method: :delete, class: "logout" %>
-        <%= link_to '掲示板を見る', boards_path %>
+        <%= link_to 'coachログアウトする', destroy_coach_session_path, method: :delete, class: "logout" %>/
+        <%= link_to '掲示板を見る', boards_path %><br>
       <% end %>
       <% end %>
       <% if coach_signed_in? %>
+        <%= link_to 'チャットルームを作成する', new_debate_path %>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= link_to '掲示板を見る', boards_path %>
       <% end %>
       </div>
     </div>
   </div>
+  <% Debate.all.each do |debate| %>
+    <%= link_to debate.name, debate_comments_path(debate) %><br>
+  <% end %>
   <div class="content">
     <div class="concept">
       <h2>コンセプト</h2>

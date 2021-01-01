@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :boards
+  resources :debates do
+    resources :comments
+  end
   devise_for :coaches, controllers: {
   sessions:      'coaches/sessions',
   registrations: 'coaches/registrations'
@@ -8,5 +11,5 @@ Rails.application.routes.draw do
   sessions:      'users/sessions',
   registrations: 'users/registrations'
 }
-  root "top#index"
+  root "debates#index"
 end

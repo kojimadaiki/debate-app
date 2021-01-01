@@ -1,0 +1,37 @@
+  <div class="side-bar">
+    <div class="side-bar-top">
+      <div class="side-bar-top-left">
+      <% if coach_signed_in? %>
+        <%=  current_coach.name %>
+      <% end %>
+      <% if user_signed_in? %>
+        <%=  current_user.name %>
+      <% end %>
+      </div>
+    </div>
+    
+
+  <div class="chat">
+  <div class="chat-top">
+    <div class="chat-top-left">
+      <%= @debate.name %>
+    </div>
+    <div class="chat-top-right">
+      <%= link_to 'チャットを終了する', debate_path(@debate), method: :delete %>
+    </div>
+  </div>
+
+  
+
+  <%= form_with model: [@debate, @comment], class: 'chat-bottom', local: true do |f| %>
+    <div class="form">
+      <%= f.text_field :content, class: 'form-left', placeholder: 'type a comment' %>
+      <label class="form-image">
+        <span class="image-file">画像</span>
+        <%= f.file_field :image, class: 'hidden' %>
+      </label>
+    </div>
+    <%= f.submit '送信', class: 'form-right' %>
+  <% end %>
+  <%= link_to 'トップに戻る', root_path %>
+</div>

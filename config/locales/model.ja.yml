@@ -24,3 +24,5 @@ ja:
       board:
         title: 教える種目
         start_time: 時間
+      debate:
+        name: ルーム名

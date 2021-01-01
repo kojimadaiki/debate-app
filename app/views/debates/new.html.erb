@@ -1,0 +1,39 @@
+<div class='chat-debate-form'>
+  <h1>新規チャットルーム</h1>
+  <%=form_with model: @debate, local: true do |f|%>
+    <div class='chat-debate-form__field'>
+      <div class='chat-debate-form__field--left'>
+        <%= f.label :チャットルーム名, class: 'chat-debate-form__label'%>
+      </div>
+      <div class='chat-debate-form__field--right'>
+        <%= f.text_field :name, class: 'chat__debate_name chat-debate-form__input', placeholder: 'チャットルーム名を入力してください'%>
+      </div>
+    </div>
+    <div class='chat-debate-form__field'>
+    </div>
+    <div class='chat-debate-form__field'>
+      <div class='chat-debate-form__field--left'>
+        <label class='chat-debate-form__label' for='chat_debate_チャットメンバー'>チャットメンバー</label>
+      </div>
+      <div class='chat-debate-form__field--right'>
+        <% if coach_signed_in? || user_signed_in? %>
+          <select name="debate[user_ids][]">
+            <option value="">チャットするユーザーを選択してください</option>
+            <% User.all.each do |user| %>
+              <option value=<%= user.id %>><%= user.name %></option>
+            <% end %>
+          </select>
+          <input name="debate[coach_ids][]" type="hidden" value=<%= current_coach.id %>>
+        <% end %>
+        
+      </div>
+    </div>
+    <div class='chat-debate-form__field'>
+      <div class='chat-debate-form__field--left'></div>
+      <div class='chat-debate-form__field--right'>
+        <%= f.submit class: 'chat-debate-form__action-btn'%>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to 'トップに戻る', root_path %>
+</div>
