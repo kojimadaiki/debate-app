@@ -28,6 +28,7 @@ class DebatesController < ApplicationController
   end
 
   private
+
   def debate_params
     params.require(:debate).permit(:name, coach_ids: [], user_id: [])
   end
