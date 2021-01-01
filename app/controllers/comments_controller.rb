@@ -2,8 +2,8 @@ class CommentsController < ApplicationController
   def index
     @comment = Comment.new
     @debate = Debate.find(params[:debate_id])
-    # @comments = @debate.comments.includes(:coach)
-    # @comments = @debate.comments.includes(:user)
+    @comments = @debate.comments.includes(:coach)
+    @comments = @debate.comments.includes(:user)
   end
 
   def create
@@ -16,8 +16,8 @@ class CommentsController < ApplicationController
     if (@comment || @comments).save 
       redirect_to debate_comments_path(@debate)
     else
-      # @comments = @debate.comments.includes(:coach)
-      # @comments = @debate.comments.includes(:user)
+      @comments = @debate.comments.includes(:coach)
+      @comments = @debate.comments.includes(:user)
       render :index
     end
   end
