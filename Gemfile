@@ -64,3 +64,13 @@ gem 'simple_calendar', '~> 2.0'
 gem 'rails-i18n', '~> 6.0.0'
 
 gem 'pry-rails'
+
+gem 'mini_magick'
+
+gem 'image_processing', '~> 1.2'
+
+gem 'jquery-rails'
+
+gem 'bootstrap', '~> 4.4.1'
+
+gem 'execjs'
