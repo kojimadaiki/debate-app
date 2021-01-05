@@ -1,11 +1,13 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @commented = Comment.all
     @comment = Comment.new
     @debate = Debate.find(params[:debate_id])
     if coach_signed_in?
       @comments = @debate.comments.includes(:coach)
-    else user_signed_in?  
+    else user_signed_in?
       @comments = @debate.comments.includes(:user)
     end
   end
