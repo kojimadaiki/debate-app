@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
     @debate = Debate.find(params[:debate_id])
     if coach_signed_in?
       @comments = @debate.comments.includes(:coach)
-    else user_signed_in?
+    else
+      user_signed_in?
       @comments = @debate.comments.includes(:user)
     end
   end
@@ -17,10 +18,11 @@ class CommentsController < ApplicationController
     @debate = Debate.find(params[:debate_id])
     if coach_signed_in?
       @comment = @debate.comments.new(coach_comment_params)
-    else user_signed_in?
+    else
+      user_signed_in?
       @comment = @debate.comments.new(user_comment_params)
     end
-    if @comment.save 
+    if @comment.save
       redirect_to debate_comments_path(@debate)
     else
       @comments = @debate.comments.includes(:coach)

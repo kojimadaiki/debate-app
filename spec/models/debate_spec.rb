@@ -11,13 +11,12 @@ RSpec.describe Debate, type: :model do
         expect(@debate).to be_valid
       end
     end
-  
 
     context 'チャットルームを作成できない時' do
       it 'nameが空の時' do
-        @debate.name = ""
+        @debate.name = ''
         @debate.valid?
-        expect(@debate.errors.full_messages).to include("ルーム名を入力してください")
+        expect(@debate.errors.full_messages).to include('ルーム名を入力してください')
       end
     end
   end
