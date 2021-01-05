@@ -1,8 +1,12 @@
 class Board < ApplicationRecord
   has_many :coaches
+  has_many :users
 
-  with_options presence: true do
-    validates :start_time
-    validates :title
+
+  validates :title, presence: true, unless: :user_signed_in
+  validates :start_time, presence: true
+
+  def user_signed_in
+    User.present?
   end
 end
