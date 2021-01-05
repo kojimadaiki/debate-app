@@ -1,5 +1,6 @@
 <%= form_with(model: @board, local: true) do |form| %>
 
+  <% if coach_signed_in? %>
   <div class="title">
     <%= form.label :教える種目 %>
     <%= form.text_field :title %>
@@ -13,6 +14,22 @@
   <div class="submit">
     <%= form.submit %>
   </div>
+
+  <% else user_signed_in? %>
+  <div class="title">
+    <%#= form.label :null  %>
+    <%= form.hidden_field :title %>
+  </div>
+
+  <div class="time">
+    <%= form.label :時間 %>
+    <%= form.datetime_select :start_time %>
+  </div>
+
+  <div class="submit">
+    <%= form.submit %>
+  </div>
+  <% end %>
 
   <%= link_to '戻る', boards_path %>
 
