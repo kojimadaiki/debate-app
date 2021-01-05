@@ -14,7 +14,11 @@ class BoardsController < ApplicationController
   end
 
   def create
-    Board.create(board_parameter)
+    if current_coach.present?
+      Board.create(board_parameter)
+    else current_user.present?
+      Board.create(boards_parameter)
+    end
     redirect_to boards_path
   end
 
@@ -41,6 +45,10 @@ class BoardsController < ApplicationController
 
   def board_parameter
     params.require(:board).permit(:name, :title, :start_time).merge(coach_id: current_coach.id, name: current_coach.name)
+  end
+
+  def boards_parameter
+    params.require(:board).permit(:name, :title, :start_time).merge(user_id: current_user.id, name: current_user.name)
   end
 
   def correct_post
