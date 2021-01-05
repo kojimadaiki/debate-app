@@ -12,13 +12,10 @@ class Comment < ApplicationRecord
   #   content_type: "text/plain"
   #   )
 
-    validates :content, presence: true, unless: :was_attached?
+  validates :content, presence: true, unless: :was_attached?
     
   def was_attached?
     self.video.attached? || self.image.attached?
-  end
-  
-  def is_attached?
   end
 
 end
