@@ -1,23 +1,32 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
+    @commented = Comment.all
     @comment = Comment.new
     @debate = Debate.find(params[:debate_id])
-    # @comments = @debate.comments.includes(:coach)
-    # @comments = @debate.comments.includes(:user)
+    if coach_signed_in?
+      @comments = @debate.comments.includes(:coach)
+    else
+      user_signed_in?
+      @comments = @debate.comments.includes(:user)
+    end
   end
 
   def create
+    @commented = Comment.all
     @debate = Debate.find(params[:debate_id])
     if coach_signed_in?
       @comment = @debate.comments.new(coach_comment_params)
-    else user_signed_id?
+    else
+      user_signed_in?
       @comment = @debate.comments.new(user_comment_params)
     end
-    if (@comment || @comments).save 
+    if @comment.save
       redirect_to debate_comments_path(@debate)
     else
-      # @comments = @debate.comments.includes(:coach)
-      # @comments = @debate.comments.includes(:user)
+      @comments = @debate.comments.includes(:coach)
+      @comments = @debate.comments.includes(:user)
       render :index
     end
   end
@@ -25,14 +34,10 @@ class CommentsController < ApplicationController
   private
 
   def coach_comment_params
-    params.require(:comment).permit(:content).merge(coach_id: current_coach.id)
-    if current_coach.id.present?
-    end
+    params.require(:comment).permit(:content, :image, :video).merge(coach_id: current_coach.id)
   end
 
   def user_comment_params
-    params.require(:comment).permit(:content).merge(user_id: current_user.id)
-    if current_user.id.present?
-    end
+    params.require(:comment).permit(:content, :image, :video).merge(user_id: current_user.id)
   end
 end

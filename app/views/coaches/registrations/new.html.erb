@@ -1,4 +1,4 @@
-<h2>新規登録</h2>
+<h2>コーチ新規登録</h2>
 
 <%= form_with model: @coach, url: coach_registration_path, local: true do |f| %>
   <%= render "coaches/shared/error_messages", resource: resource %>
@@ -34,5 +34,9 @@
     <%= f.submit "新規登録" %>
   </div>
 <% end %>
+
+  <%= link_to 'コーチログインの方はこちら', new_coach_session_path %><br>
+  <%= link_to 'ユーザーログインの方はこちら', new_user_session_path %><br>
+  <%= link_to '新規ユーザー登録の方はこちら', new_user_registration_path %>
 
 <%#= render "coaches/shared/links" %>

@@ -1,4 +1,4 @@
-<h2>ログイン</h2>
+<h2>ユーザーログイン</h2>
 
 <%= form_with model: @user, url: user_session_path, local: true do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
@@ -35,5 +35,10 @@
     <%= f.submit "ログインする" %>
   </div>
 <% end %>
+
+  <%= link_to '新規ユーザー登録の方はこちら', new_user_registration_path %><br>
+  <%= link_to '新規コーチ登録の方はこちら', new_coach_registration_path %><br>
+  <%= link_to 'コーチログインの方はこちら', new_coach_session_path %>
+
 
 <%#= render "users/shared/links" %>

@@ -26,3 +26,6 @@ ja:
         start_time: 時間
       debate:
         name: ルーム名
+      comment:
+        debate: 部屋名
+        content: テキスト

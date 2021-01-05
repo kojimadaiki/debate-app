@@ -1,0 +1,37 @@
+<% if user_signed_in? %>
+    <% @comments.each do |comment| %>
+      <a href="#" id="name">
+      <% if comment.coach_id.present? %>
+        <%= comment.coach.name %>
+      <% else %>
+        <%= comment.user.name  %>
+      <% end %>
+      </a><br>
+      <%= comment.content %>
+      <%= l comment.created_at %><br>
+      <% if comment.image.attached? %>
+        <%= image_tag comment.image.variant(resize: '500x500') %><br>
+      <% end %>
+      <% if comment.video.attached? %>
+        <video src="<%= rails_blob_path(comment.video) %>" style="width: 400px; height: 400px", type="video/mp4" controls></video><br>
+      <% end %>
+    <% end %>
+  <% else coach_signed_in? %>
+    <% @comments.each do |comment| %>
+      <a href="#" id="name">
+      <% if comment.coach_id.present? %>
+        <%= comment.coach.name %>
+      <% else %>
+        <%= comment.user.name  %>
+      <% end %>
+      </a><br>
+      <%= comment.content %>
+      <%= l comment.created_at %><br>
+      <% if comment.image.attached? %>
+        <%= image_tag comment.image.variant(resize: '500x500') %><br>
+      <% end %>
+      <% if comment.video.attached? %>
+        <video src="<%= rails_blob_path(comment.video) %>" style="width: 400px; height: 400px", type="video/mp4" controls></video><br>
+      <% end %>
+    <% end %>
+  <% end %>

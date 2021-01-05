@@ -21,15 +21,22 @@
     </div>
   </div>
 
-  
+  <table id="post">
+    <%= render 'comments/post', comments: @commented %>
+  </table>
 
-  <%= form_with model: [@debate, @comment], class: 'chat-bottom', local: true do |f| %>
+
+  <%= form_with model: [@debate, @comment], class: 'chat-bottom', data: {remote: true}, id: "form", local: true do |f| %>
     <div class="form">
-      <%= f.text_field :content, class: 'form-left', placeholder: 'type a comment' %>
-      <label class="form-image">
-        <span class="image-file">画像</span>
+      <%= f.text_field :content, class: 'form-left', placeholder: 'コメント入力', id: "text" %><br>
+      <div class="image-file">
+        <%= f.label :image %><br>
         <%= f.file_field :image, class: 'hidden' %>
-      </label>
+      </div>
+      <div class="field">
+        <%= f.label :video %><br>
+        <%= f.file_field :video, :accept => 'video/*' %>
+      </div>
     </div>
     <%= f.submit '送信', class: 'form-right' %>
   <% end %>

@@ -41,8 +41,10 @@
       </div>
     </div>
   </div>
+  <% if user_signed_in? || coach_signed_in? %>
   <% Debate.all.each do |debate| %>
     <%= link_to debate.name, debate_comments_path(debate) %><br>
+  <% end %>
   <% end %>
   <div class="content">
     <div class="concept">
