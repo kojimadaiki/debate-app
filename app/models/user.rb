@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :debate_users, dependent: :destroy
   has_many :debates, through: :debate_users
   has_many :comments
+  has_many :boards
 
   with_options presence: true do
     validates :name
