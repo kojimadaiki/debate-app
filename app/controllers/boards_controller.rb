@@ -16,7 +16,8 @@ class BoardsController < ApplicationController
   def create
     if current_coach.present?
       Board.create(board_parameter)
-    else current_user.present?
+    else
+      current_user.present?
       Board.create(boards_parameter)
     end
     redirect_to boards_path
