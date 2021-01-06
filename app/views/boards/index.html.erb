@@ -20,11 +20,16 @@
     <div>
     <% if board.coach_id.present? %>
       ○<%= board.name %><br>
-      <%= link_to board.title, board_path(board) %><br>
-      <%= link_to board.start_time.strftime('%H:%M'), board_path(board) %><%= "〜" %>
+      <% if coach_signed_in? %>
+        <%= link_to board.title, board_path(board) %><br>
+        <%= link_to board.start_time.strftime('%H:%M'), board_path(board) %><%= "〜" %>
+      <% else %>
+        <%= board.title %>
+        <%= board.start_time.strftime('%H:%M') %><%= "〜" %>
+      <% end %>
     <% else %>
       ↪︎<%= board.name %>
-      <% end %>
+    <% end %>
     </div>
   <% end %>
 <% end %>
