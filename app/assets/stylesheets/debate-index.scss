@@ -1,0 +1,62 @@
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: content-box;
+}
+
+$primary-color: #3EA1D1;
+$font-color: #333;
+
+body {
+  font-family: "Hiragino Mincho ProN", "ヒラギノ明朝 ProN";
+  color: $font-color;
+  font-size: 20px;
+  line-height: 1.6875;
+  height: 800px;
+  margin: 0;
+}
+
+.header {
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  padding-top: 25px;
+  width: 1280px;
+  .header-left {
+    width: 60%;
+    .image {
+      padding-top: 5px;
+    }
+  }
+  .header-right {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    .board {
+      margin-top: 20px;
+      font-size: 20px;
+      text-decoration: none;
+      color: $font-color;
+    }
+    .board:hover {
+      color: rgb(138, 207, 111)
+    }
+    .member:hover {
+      color: rgb(138, 207, 111)
+    }
+    .question:hover {
+      color: rgb(138, 207, 111)
+    }
+  }
+}
+
+.main {
+  background-image: url(/images/katunowa.jpg);
+  height: 
+  .top {
+
+  }
+}
