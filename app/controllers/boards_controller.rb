@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :correct_post, only: [:edit]
+  before_action :authenticate_user!, unless: proc { coach_signed_in? }
 
   def index
     @boards = Board.all
