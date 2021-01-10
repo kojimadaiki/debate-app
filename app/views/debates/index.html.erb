@@ -8,53 +8,139 @@
     </div>
     <div class="header-right">
       <% if user_signed_in? || coach_signed_in? %>
-        <%= link_to '掲示板を見る', boards_path, class: "board" %>
-      <% end %>
-      <p class="member">会員サイト</p>
-      <p class="question">よくある質問</p>
-    </div>
-  </div>
-  <div class="main inner">
-    <div class="top">
-      <div class="sign_in">
-      <% unless coach_signed_in? %>
-      <% unless user_signed_in? %>
-        <%= link_to 'user新規登録する', new_user_registration_path %>/
-        <%= link_to 'userログインする', new_user_session_path %>
-      <% else %>
-        <%= link_to 'userログアウトする', destroy_user_session_path, method: :delete, class: "logout" %>
-      <% end %>
-      <% end %>
-      </div>
-      <div class="log_in">
-      <% unless user_signed_in? %>
-      <% unless coach_signed_in? %>
-        <%= link_to 'coach新規登録する', new_coach_registration_path %>/
-        <%= link_to 'coachログインする', new_coach_session_path %>
-      <% else %>
-        <%= link_to 'coachログアウトする', destroy_coach_session_path, method: :delete, class: "logout" %>/
-        <%= link_to '掲示板を見る', boards_path %><br>
-      <% end %>
+        <p><%= link_to '掲示板確認', boards_path, class: "board" %></p>
+        <a href="#room"><p class="board">ルーム一覧</p></a>
       <% end %>
       <% if coach_signed_in? %>
-        <%= link_to 'チャットルームを作成する', new_debate_path %>
+        <p><%= link_to 'ルーム作成', new_debate_path, class: "board" %></p>
       <% end %>
       <% if user_signed_in? %>
-        <%= link_to '掲示板を見る', boards_path %>
+        <p><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></p>
+      <% elsif coach_signed_in? %>
+        <p><%= link_to 'ログアウト', destroy_coach_session_path, method: :delete, class: "logout" %></p>
+      <% else %>
+        <a href="#member"><p class="member">会員サイト</p></a>
+      <% end %>
+      <a href="#question"><p class="question">よくある質問</p></a>
+    </div>
+  </div>
+
+  <div class="main inner">
+    <div class="main-nonbg">
+      <div class="catch">
+        <h3>あなたの疑問を解決します</h3>
+        <h2>正しい知識や技術は武器になる</h2>
+      </div>
+        <h4>水泳の知識・疑問点について聞けるアプリです</h4>
+    </div>
+  </div>
+
+  <% unless coach_signed_in? || user_signed_in? %>
+    <div class="top inner" id="member">
+      <div class="top-title">
+      <% unless coach_signed_in? %>
+      <% unless user_signed_in? %>
+        <h3 class="member-groups"><span>会員サイト</span></h3>
+      <% end %>
       <% end %>
       </div>
+      <div class="sign_log_in">
+        <div class="user">
+          <% unless coach_signed_in? %>
+          <% unless user_signed_in? %>
+            <h3><span>User</span>専用</h3>
+            <div class="sign_up">
+              <p>新規登録はこちら</p><p>⇨</p>
+              <p><%= link_to 'user新規登録する', new_user_registration_path, class:"user_sign_up" %></p><br>
+            </div>
+            <div class="log-in">
+              <p>ログインはこちら</p><p>⇨</p>
+              <p><%= link_to 'userログインする', new_user_session_path, class: "user_log_in" %></p><br>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+        <% unless coach_signed_in? %>
+        <% unless user_signed_in? %>
+          <div class="vertical-line" style="height: 300px"></div>
+        <% end %>
+        <% end %>
+        <div class="coach">
+          <% unless user_signed_in? %>
+          <% unless coach_signed_in? %>
+            <h3><span>Coach</span>専用</h3>
+            <div class="sign_up">
+              <p>新規登録はこちら</p><p>⇨</p>
+              <p><%= link_to 'coach新規登録する', new_coach_registration_path, class:"coach_sign_up" %></p><br>
+            </div>
+            <div class="log-in">
+              <p>ログインはこちら</p><p>⇨</p>
+              <p><%= link_to 'coachログインする', new_coach_session_path, class: "coach_log_in" %></p><br>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
+  <% else %>
+  <div class="create inner" id="room">
+    <h3>討論予定のルーム一覧</h3>
+    <p><span>※</span>参加するルーム名を選んでください</p>
+    <% if user_signed_in? || coach_signed_in? %>
+    <table style="border-collapse: collapse" class="box">
+      <tr class="tag">
+        <th>担当コーチ名</th>
+        <th>開始時間</th>
+        <th>ルーム名</th>
+      </tr>
+        <% Board.all.each do |board| %>
+      <tr class="list">
+        <% if board.coach_id.present? %>
+          <td><%= board.name %></td>
+          <td><%= board.start_time.strftime('%Y/%m/%d %H:%M') %>〜</td>
+          <% Debate.all.each do |debate| %>
+            <% if coach_signed_in? %>
+              <% if debate.name == board.title && debate.start_time == board.start_time && board.name == current_coach.name %>
+                <td><%= link_to board.title, debate_comments_path(debate, board), class: "debate" %></td>
+                <% end %>
+            <% else %>
+              <% if debate.name == board.title && debate.start_time == board.start_time %>
+                <td><%= link_to board.title, debate_comments_path(debate, board), class: "debate" %></td>
+                <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <% end %>
+      </tr>
+      </table>
+    <% end %>
+  <% end %>
   </div>
-  <% if user_signed_in? || coach_signed_in? %>
-  <% Debate.all.each do |debate| %>
-    <%= link_to debate.name, debate_comments_path(debate) %><br>
-  <% end %>
-  <% end %>
-  <div class="content inner">
-    <div class="question">
-      <h2>よくある質問</h2>
+
+  <div id="question" class="QandA-2 inner">
+    <h2><span>よくある質問</span></h2>
+    <div class="connecting">
+      <p><img src="/images/logo.png"></p>
+      <p class="toha">について</p>
     </div>
+    <dl>
+      <dt>connectingとは？</dt>
+      <dd>誰でも気軽に水泳の専門知識についてコーチから学べる討論アプリです。<br>会員登録をするだけで利用できます。貴方の競技力向上のきっかけになれば幸いです。</dd>
+    </dl>
+    <dl>
+      <dt>どうやったら討論の予約ができるようになる？</dt>
+      <dd>まず初めにUser会員登録をお願いします。<br>User会員登録後は掲示板を確認していただいて、フォーマット通りに自身の都合の良い時間帯に行われる討論に参加する、とコメントをするだけです。</dd>
+    </dl>
+    <dl>
+      <dt>掲示板とは？</dt>
+      <dd>コーチ各々が討論を開始する時間を確認できるカレンダーです。<br>参加したい日付・時間帯と全く同じ時間を入力するだけです。すると掲示板カレンダーにご自身の会員登録時の名前が表示されます。討論はコーチとユーザーの一対一ですのでお早めの入力をオススメしています。右上の掲示板確認からページに飛ぶことができます。</dd>
+    </dl>
+    <dl>
+      <dt>掲示板に入力したらそのあとはどうすればいい？</dt>
+      <dd>あとは時間までお待ち頂くだけです。<br>お時間になりましたら、討論予定のルーム一覧にルーム名が表示されます。担当コーチ・開始時間をご確認の上、ご自身が参加されるルーム名をクリックするとチャットルームページに飛ぶことができます。</dd>
+    </dl>
   </div>
+
   <div class="footer inner">
-   <p>©︎</p>
+    <img src="/images/page2.png" style="float: right" class="page reverse" id="page_top">
   </div>

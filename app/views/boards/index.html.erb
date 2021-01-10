@@ -11,7 +11,7 @@
 <% if user_signed_in? %>
   <%= link_to '参加したい時間をコメントする', new_board_path %>/
 <% end %>
-<%= link_to 'トップへ戻る', root_path %>
+<%= link_to 'トップへ戻る', root_path(@boards) %>
 
 <%= month_calendar events: @boards do |date, board| %>
   <%= date.day %>
