@@ -12,7 +12,7 @@ class DebatesController < ApplicationController
   def create
     @debate = Debate.new(debate_params)
     if @debate.save
-      redirect_to debate_comments_path(@debate)
+      redirect_to root_path
     else
       render :new
     end
@@ -30,7 +30,7 @@ class DebatesController < ApplicationController
   private
 
   def debate_params
-    params.require(:debate).permit(:name, coach_ids: [], user_id: [])
+    params.require(:debate).permit(:name, :start_time, coach_ids: [], user_id: [])
   end
 
   # def correct_post
