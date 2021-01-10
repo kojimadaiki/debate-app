@@ -260,22 +260,29 @@ body {
   font-size: 20px;
 }
 
-.create .box .debate {
+.create .box .list {
+  transform: 0.5 all;
+}
+
+.create .box .list .debate {
   text-decoration: none;
   color: black;
 }
 
-.create .box .debate:hover {
+.create .box .list .debate:hover {
   color: red;
   opacity: 0.8;
 }
 
-.create .list:last-child {
+.create .box .list:last-child {
   border-bottom: none;
 }
 
-.create .list:hover {
+.create .box .list:hover {
   background-color: #defad3;
+  transform: scale(1.05, 1.05);
+  transition: 1s all;
+  cursor: pointer;
 }
 
 .QandA-2 {

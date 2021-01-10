@@ -70,7 +70,6 @@ body {
 .main {
   background-image: url(/images/katunowa.jpg);
   background-size: cover;
-  // opacity: 0.5;
   height: 700px;
   width: 1280px;
   padding: 0 40px 0 0;
@@ -223,6 +222,8 @@ body {
           font-size: 20px;
         }
       }
+      .list {
+        transform: 0.5 all;
         .debate {
           text-decoration: none;
           color: black;
@@ -237,8 +238,13 @@ body {
       }
       .list:hover {
         background-color: rgb(222, 250, 211);
+        transform: scale(1.05,1.05);
+        transition: 1s all;
+        cursor: pointer;
       }
     }
+  }
+    
   
 
   .QandA-2 {
