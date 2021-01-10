@@ -9,7 +9,7 @@ $primary-color: #3EA1D1;
 $font-color: #333;
 
 body {
-  font-family: "Hiragino Mincho ProN", "ヒラギノ明朝 ProN";
+  font-family: メイリオ;
   color: $font-color;
   font-size: 20px;
   line-height: 1.6875;
@@ -18,6 +18,8 @@ body {
 }
 
 .header {
+  position: fixed;
+  background: #fff;
   z-index: 100;
   top: 0;
   left: 0;
@@ -25,38 +27,268 @@ body {
   display: flex;
   padding-top: 25px;
   width: 1280px;
+  font-size: 16px;
   .header-left {
     width: 60%;
     .image {
-      padding-top: 5px;
+      // padding-top: 5px;
     }
   }
   .header-right {
     display: flex;
     justify-content: space-between;
     width: 40%;
+    padding-top: 5px;
     .board {
-      margin-top: 20px;
-      font-size: 20px;
+      font-size: 16px;
+      text-decoration: none;
+      color: $font-color;
+    }
+    .logout {
+      text-decoration: none;
+      color: $font-color;
+    }
+    a {
       text-decoration: none;
       color: $font-color;
     }
     .board:hover {
-      color: rgb(138, 207, 111)
+      color: rgb(138, 207, 111);
+    }
+    .logout:hover {
+      color: rgb(138, 207, 111);
     }
     .member:hover {
-      color: rgb(138, 207, 111)
+      color: rgb(138, 207, 111);
     }
     .question:hover {
-      color: rgb(138, 207, 111)
+      color: rgb(138, 207, 111);
     }
   }
 }
 
 .main {
   background-image: url(/images/katunowa.jpg);
-  height: 
-  .top {
-
+  background-size: cover;
+  // opacity: 0.5;
+  height: 700px;
+  width: 1280px;
+  padding: 0 40px 0 0;
+  margin-top: 100px;
+  .main-nonbg {
+    height: 100%;
+    background: rgba(255,255,255,0.6);
+    width: 1360px;
+    margin: 0;
+    padding: 50px;
+    .catch {
+      h2 {
+        color: rgb(0, 0, 0);
+        font-size: 36px;
+      }
+      h3 {
+        font-size: 32px;
+      }
+      h4 {
+        font-weight: bold;
+      }
+    }
   }
 }
+  .top {
+    margin-top: 150px;
+    width: 1200px;
+    height: 500px;
+    .top-title {
+      text-align: center;
+      .member-groups {
+        padding-bottom: 30px;
+        font-size: 36px;
+      }
+    }
+    .sign_log_in {
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      .user {
+        width: 45%;
+        text-align: center;
+        background-color: rgb(206, 230, 238);
+        border-radius: 50px;
+        h3 {
+          padding-top: 20px;
+          span {
+            color: rgb(24, 156, 189);
+          }
+        }
+        .sign_up {
+          display: flex;
+          justify-content: space-around;
+          text-align: center;
+          margin-left: 30px;
+          .user_sign_up {
+            text-decoration: none;
+            color: $font-color;
+          }
+          .user_sign_up:hover {
+            color: rgb(24, 156, 189);
+          }
+        }
+        .log-in {
+          display: flex;
+          justify-content: space-around;
+          text-align: center;
+          margin-left: 30px;
+          .user_log_in {
+            text-decoration: none;
+            color: $font-color;
+          }
+          .user_log_in:hover {
+            color: rgb(24, 156, 189);
+          }
+        }
+      }
+      div.vertical-line{
+        width: 0px;
+        height: 100%;
+        float: left; 
+        border: 1px inset;
+        margin: 0 30px;
+      }
+      .coach {
+        width: 45%;
+        text-align: center;
+        background-color: rgb(238, 237, 206);
+        border-radius: 50px;
+        h3 {
+          padding-top: 20px;
+          span {
+            color: rgb(189, 186, 24);
+          }
+        }
+        .sign_up {
+          display: flex;
+          justify-content: space-around;
+          text-align: center;
+          padding-left: 35px;
+          .coach_sign_up {
+            text-decoration: none;
+            color: $font-color;
+          }
+          .coach_sign_up:hover {
+            color: rgb(189, 186, 24);
+          }
+        }
+        .log-in {
+          display: flex;
+          justify-content: space-around;
+          text-align: center;
+          padding-left: 35px;
+          .coach_log_in {
+            text-decoration: none;
+            color: $font-color;
+          }
+          .coach_log_in:hover {
+            color: rgb(189, 186, 24);
+          }
+        }
+      }
+    }
+  }
+
+  .create {
+    margin-top: 100px;
+    width: 1200px;
+    h3 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 16px;
+      span {
+        color: red;
+        font-size: 12px;
+      }
+    }
+    .box {
+      width: 1200px;
+      text-align: center;
+      .tag {
+        background-color: rgb(211, 211, 211);
+        border-bottom: 2px solid black;
+        th {
+          font-size: 20px;
+        }
+      }
+        .debate {
+          text-decoration: none;
+          color: black;
+        }
+        .debate:hover {
+          color: red;
+          opacity: 0.8;
+        }
+      }
+      .list:last-child {
+        border-bottom: none;
+      }
+      .list:hover {
+        background-color: rgb(222, 250, 211);
+      }
+    }
+  
+
+  .QandA-2 {
+    width: 1200;
+    font-family: メイリオ;
+    font-size: 16px;
+    h2 {
+      text-align: center;
+      font-size: 32px;
+      margin: 100px 0 50px 0;
+    }
+    .connecting {
+      display: flex;
+      .toha {
+        margin-top: 36px;
+      }
+    }
+    dl {
+      border: 1px solid #ccc;
+      dt {
+        font-weight: bold;
+          color: #111;
+          background: #f4f4f4;
+          padding: 8px;
+          border-top: 1px solid #ccc;
+          border-bottom: 1px solid #ccc;
+        }
+      dt:first-child {
+        border-top: none;
+      }
+      dt:before {
+        content: "Q.";
+        font-weight: bold;
+        margin-right: 8px;
+      }
+      dd {
+        padding: 16px 16px 24px 30px;
+        margin: 0;
+        line-height: 140%;
+      }
+      dd:first-line {
+        font-weight: bold;
+        color: #bf0000;
+      }
+      dd:before {
+        content: "A.";
+        font-weight: bold;
+        margin-right: 8px;
+        margin-left: -21px;
+      }
+    }
+  }
+
