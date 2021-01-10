@@ -9,6 +9,10 @@
         <%= f.text_field :name, class: 'chat__debate_name chat-debate-form__input', placeholder: 'チャットルーム名を入力してください'%>
       </div>
     </div>
+    <div class="time">
+      <%= f.label :時間 %>
+      <%= f.datetime_select :start_time %>
+    </div>
     <div class='chat-debate-form__field'>
     </div>
     <div class='chat-debate-form__field'>
