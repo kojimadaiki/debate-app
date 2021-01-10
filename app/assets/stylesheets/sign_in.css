@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: "Hiragino Mincho ProN", "ヒラギノ明朝 ProN";
+  font-family: 'sans-serif',"Hiragino Mincho ProN", "ヒラギノ明朝 ProN";
   color: #333;
   font-size: 16px;
   line-height: 1.6875;
