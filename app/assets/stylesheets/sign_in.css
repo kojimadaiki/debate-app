@@ -3,7 +3,8 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 40px;
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
 }
 
 body {
@@ -50,11 +51,17 @@ img {
 }
 
 .login .form-group .field {
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-bottom: 30px;
   text-align: center;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .login .form-group .field span {
@@ -105,9 +112,13 @@ img {
 }
 
 .login .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 30px;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .login .links .link1 {
@@ -141,3 +152,4 @@ img {
   color: #174e6e;
   border-bottom: 1px #fca4a4 solid;
 }
+/*# sourceMappingURL=sign_in.css.map */

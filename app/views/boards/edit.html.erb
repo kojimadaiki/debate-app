@@ -1,17 +1,55 @@
-<%= form_with(model: @board, local: true) do |form| %>
-
-  <div class="title">
-    <%= form.label :教える種目 %>
-    <%= form.text_field :title %>
-  </div>
-
-    <div class="time">
-    <%= form.label :時間 %>
-    <%= form.datetime_select :start_time %>
-  </div>
-
-  <div class="submit">
-    <%= form.submit %>
-  </div>
-
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'board-edit' %>
 <% end %>
+
+<div class="board inner">
+  <h2 class="inner"><span>登録内容編集</span></h2>
+  <div class="board-group">
+    <div class="board-post">
+    <%= form_with(model: @board, local: true) do |form| %>
+      <% if coach_signed_in? %>
+        <div class="title">
+          <%= form.label :教える種目, class: "style" %>
+          <p><%= form.text_field :title %></p>
+        </div>
+
+        <div class="time">
+          <%= form.label :開始時間, class: "times" %>
+          <p><%= form.datetime_select :start_time %></p>
+        </div>
+
+        <div class="submit">
+          <%= form.submit "更新", class: "send" %>
+        </div>
+        <% end %>
+      <% end %>
+
+  <%= link_to 'トップへ戻る', root_path(@boards), class: "top" %><br><br>
+
+  <span class="saving"><%= flash[:notice] %></span>
+  </div>
+
+  <br>
+    
+  <div class="calendar">
+    <%= month_calendar events: @boards do |date, board| %>
+      <%= date.day %><br>
+
+      <% board.each do |board| %>
+        <% if board.coach_id.present? %>
+          ･<%= board.name %><br>
+          <% if coach_signed_in? %>
+            <%= link_to board.title, board_path(board), class: "b-title" %><br>
+            <%= link_to board.start_time.strftime('%H:%M'), board_path(board), class: "s_time" %><%= "〜" %><br>
+          <% else %>
+            <span class="b-title"><%= board.title %></span>
+            <span class="s_time"><%= board.start_time.strftime('%H:%M') %><%= "〜" %></span><br>
+          <% end %>
+        <% else %>
+          ↪︎<%= board.name %>
+        <% end %>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+</div>

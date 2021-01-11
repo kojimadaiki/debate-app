@@ -1,18 +1,54 @@
-<p id="notice"></p>
-
-<p>
-  <strong>タイトル</strong>
-  <%= @board.title %>
-</p>
-
-<p>
-  <strong>時間</strong>
-  <%= @board.start_time.strftime("%Y-%m-%d %H:%M") %>〜
-</p>
-
-
-<%  if current_coach.id == @board.coach_id %>
-  <%= link_to '編集する', edit_board_path(@board) %> |
-  <%= link_to '削除する', board_path(@board.id), method: :delete %> |
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'board-show' %>
 <% end %>
-<%= link_to '戻る', boards_path %>
+
+<div class="show inner">
+
+  <h2><span>登録内容詳細</span></h2>
+  <div class="show-group">
+    <div class="show-left">
+      <div class="show-title">
+        <p class="title">タイトル:</p>
+        <span class="title-name"><%= @board.title %></span>
+      </div>
+
+      <div class="show-times">
+        <p class="time">開始時間:</p>
+        <span class="time-name"><%= @board.start_time.strftime("%Y-%m-%d %H:%M") %>〜</span>
+      </div>
+
+
+      <%  if current_coach.id == @board.coach_id %>
+        <p class="alert"><span>※</span>上記の投稿内容を?</p>
+        <%= link_to '編集する', edit_board_path(@board) %> /
+        <%= link_to '削除する', board_path(@board.id), method: :delete %> 
+      <% end %>
+      <p><%= link_to '討論時間一覧へ戻る', boards_path %></p>
+    </div>
+
+    <span class="saving"><%= flash[:notice] %></span>
+
+
+<div class="calendar inner">
+    <%= month_calendar events: @boards do |date, board| %>
+      <%= date.day %><br>
+
+      <% board.each do |board| %>
+        <% if board.coach_id.present? %>
+          ･<%= board.name %><br>
+          <% if coach_signed_in? %>
+            <%= link_to board.title, board_path(board), class: "b-title" %><br>
+            <span class="s_time"><%= link_to board.start_time.strftime('%H:%M'), board_path(board) %>〜</span><br>
+          <% else %>
+            <span class="b-title"><%= board.title %></span>
+            <span class="s_time"><%= board.start_time.strftime('%H:%M') %>〜</span><br>
+          <% end %>
+        <% else %>
+          ↪︎<%= board.name %>
+        <% end %>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+  </div>
+</div>

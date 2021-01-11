@@ -4,6 +4,7 @@ class BoardsController < ApplicationController
 
   def index
     @boards = Board.all
+    @board = Board.new
   end
 
   def new
@@ -12,6 +13,7 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
+    @boards = Board.all
   end
 
   def create
@@ -21,22 +23,26 @@ class BoardsController < ApplicationController
       current_user.present?
       Board.create(boards_parameter)
     end
+    flash[:notice] = '討論時間を登録しました。'
     redirect_to boards_path
   end
 
   def destroy
     @board = Board.find(params[:id])
     @board.destroy
+    flash[:notice] = '討論時間を削除しました。'
     redirect_to boards_path
   end
 
   def edit
     @board = Board.find(params[:id])
+    @boards = Board.all
   end
 
   def update
     @board = Board.find(params[:id])
     if @board.update(board_parameter)
+      flash[:notice] = '討論時間を更新しました。'
       redirect_to boards_path
     else
       render 'edit'

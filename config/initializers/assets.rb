@@ -17,4 +17,7 @@ Rails.application.config.assets.precompile += %w(
    coach.css
    user.css
    debate-index.css
+   board-index.css
+   board-show.css
+   board-edit.css
   )

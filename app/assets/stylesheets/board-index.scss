@@ -1,0 +1,106 @@
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: content-box;
+}
+
+$primary-color: #3EA1D1;
+$font-color: #333;
+
+body {
+  font-family: メイリオ;
+  color: $font-color;
+  font-size: 20px;
+  line-height: 1.6875;
+  height: 800px;
+  margin: 0;
+}
+
+.board {
+  text-align: center;
+  font-size: 14px;
+  h2 {
+    font-size: 36px;
+    margin: 50px 0 80px 0;
+    span {
+      background:rgba(0, 0, 0, 0) linear-gradient(transparent 60%, #ffffbc 0%) repeat scroll 0 0;
+    }
+  }
+  .board-group {
+    display: flex;
+    width: 100%;
+    .board-post {
+      width: 30%;
+      padding-top: 50px;
+      .style {
+        font-weight: bold;
+        background:rgba(0, 0, 0, 0) linear-gradient(transparent 80%, #ffb2d8 0%) repeat scroll 0 0;
+      }
+      .times {
+        font-weight: bold;
+        background:rgba(0, 0, 0, 0) linear-gradient(transparent 80%, #89c1fa 0%) repeat scroll 0 0;
+      }
+      .submit {
+        margin: 30px 0 20px 0;
+        .send {
+          background-color: #fff;
+          text-align: center;
+          border: 2px rgb(231, 231, 73) solid;
+          width: 200px;
+        }
+        .send:hover {
+          border-radius: 10px;
+          cursor: pointer;
+          opacity: 0.8;
+          border: none;
+          background-color: rgb(247, 253, 158);
+          width: 240px;
+          height: 30px;
+          border: 2px rgb(231, 231, 73) solid;
+        }
+      }
+      .caution {
+        font-size: 12px;
+      }
+      .caution span {
+        font-size: 10px;
+        color: red;
+      }
+      .top {
+        text-decoration: none;
+        color: $font-color;
+      }
+      .top:hover {
+        font-weight: bold;
+      }
+      .saving {
+        padding-top: 20px;
+        font-size: 16px;
+        background:rgba(0, 0, 0, 0) linear-gradient(transparent 80%, #ffffbc 0%) repeat scroll 0 0;
+      }
+    }
+  }
+}
+  .calendar {
+    width: 70%;
+    .calendar-heading {
+      .calendar-title {
+        font-size: 26px;
+        margin: 0 30px;
+      }
+    }
+      .b-title {
+        background:rgba(0, 0, 0, 0) linear-gradient(transparent 80%, #ffb2d8 0%) repeat scroll 0 0;
+      }
+      .s_time {
+        background:rgba(0, 0, 0, 0) linear-gradient(transparent 80%, #89c1fa 0%) repeat scroll 0 0;
+      }
+      a {
+        text-decoration: none;
+        color: $font-color;
+      }
+      a:hover {
+        font-weight: bold;
+      }
+    }
