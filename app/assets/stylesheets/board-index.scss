@@ -32,7 +32,7 @@ body {
     width: 100%;
     .board-post {
       width: 30%;
-      padding-top: 50px;
+      margin-top: 30px;
       .style {
         font-weight: bold;
         background:rgba(0, 0, 0, 0) linear-gradient(transparent 80%, #ffb2d8 0%) repeat scroll 0 0;
@@ -102,5 +102,8 @@ body {
       }
       a:hover {
         font-weight: bold;
+      }
+      .user_name {
+        background:rgba(0, 0, 0, 0) linear-gradient(transparent 80%, #92fa89 0%) repeat scroll 0 0;
       }
     }
