@@ -1,43 +1,62 @@
-<div class='chat-debate-form'>
-  <h1>新規チャットルーム</h1>
-  <%=form_with model: @debate, local: true do |f|%>
-    <div class='chat-debate-form__field'>
-      <div class='chat-debate-form__field--left'>
-        <%= f.label :チャットルーム名, class: 'chat-debate-form__label'%>
-      </div>
-      <div class='chat-debate-form__field--right'>
-        <%= f.text_field :name, class: 'chat__debate_name chat-debate-form__input', placeholder: 'チャットルーム名を入力してください'%>
-      </div>
-    </div>
-    <div class="time">
-      <%= f.label :時間 %>
-      <%= f.datetime_select :start_time %>
-    </div>
-    <div class='chat-debate-form__field'>
-    </div>
-    <div class='chat-debate-form__field'>
-      <div class='chat-debate-form__field--left'>
-        <label class='chat-debate-form__label' for='chat_debate_チャットメンバー'>チャットメンバー</label>
-      </div>
-      <div class='chat-debate-form__field--right'>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'debate_new' %>
+<% end %>
+
+<div class="board inner">
+  <h2 class="inner"><span>新規ディベートルーム作成</span></h2>
+  <div class="debate-board">
+    <div class='debate'>
+      <%=form_with model: @debate, local: true do |f|%>
+          <div class='chat'>
+            <p><%= f.label :チャットルーム名, class: "chat-name" %></p>
+            <p><%= f.text_field :name, placeholder: 'チャットルーム名を入力してください'%></p>
+          </div>
+        <div>
+          <p><%= f.label :時間, class: "time" %></p>
+          <p><%= f.datetime_select :start_time %></p>
+        </div>
+        <div class='member'>
+          <p class='debate-member' for='chat_debate_チャットメンバー'><span>チャットメンバー</span></p>
+        </div>
         <% if coach_signed_in? || user_signed_in? %>
           <select name="debate[user_ids][]">
-            <option value="">チャットするユーザーを選択してください</option>
+            <option class="user-choice">チャットするユーザーを選択してください</option>
             <% User.all.each do |user| %>
               <option value=<%= user.id %>><%= user.name %></option>
             <% end %>
           </select>
           <input name="debate[coach_ids][]" type="hidden" value=<%= current_coach.id %>>
         <% end %>
-        
+        <div class="submit">
+          <%= f.submit "登録", class: "send" %>
+        </div>
+      <% end %>
+      <%= link_to 'トップに戻る', root_path %>
+    </div>
+
+
+    <br>
+      
+    <div class="calendar inner">
+      <%= month_calendar events: @boards do |date, board| %>
+        <%= date.day %><br>
+
+        <% board.each do |board| %>
+          <% if board.coach_id.present? %>
+            ･<%= board.name %><br>
+            <% if coach_signed_in? %>
+              <%= link_to board.title, board_path(board), class: "b-title" %><br>
+            <span class="s_time"><%= link_to board.start_time.strftime('%H:%M'), board_path(board) %>〜</span><br>
+            <% else %>
+              <span class="b-title"><%= board.title %></span>
+            <span class="s_time"><%= board.start_time.strftime('%H:%M') %>〜</span><br>
+            <% end %>
+          <% else %>
+            ↪︎<span class="user_name"><%= board.name %></span>
+          <% end %>
+        <% end %>
+      <% end %>
       </div>
     </div>
-    <div class='chat-debate-form__field'>
-      <div class='chat-debate-form__field--left'></div>
-      <div class='chat-debate-form__field--right'>
-        <%= f.submit class: 'chat-debate-form__action-btn'%>
-      </div>
-    </div>
-  <% end %>
-  <%= link_to 'トップに戻る', root_path %>
+  </div>
 </div>
