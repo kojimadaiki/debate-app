@@ -8,7 +8,6 @@ class DebatesController < ApplicationController
   def new
     @debate = Debate.new
     @boards = Board.all
-
   end
 
   def create
