@@ -3,7 +3,8 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 40px;
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
 }
 
 body {
@@ -22,6 +23,8 @@ body {
   top: 0;
   left: 0;
   right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding-top: 25px;
   width: 1280px;
@@ -32,9 +35,17 @@ body {
   width: 60%;
 }
 
+.header .header-left .image {
+  width: 200px;
+}
+
 .header .header-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 40%;
   padding-top: 5px;
 }
@@ -117,9 +128,13 @@ body {
 }
 
 .top .sign_log_in {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   text-align: center;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .top .sign_log_in .user {
@@ -138,8 +153,11 @@ body {
 }
 
 .top .sign_log_in .user .sign_up {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   text-align: center;
   margin-left: 30px;
 }
@@ -154,8 +172,11 @@ body {
 }
 
 .top .sign_log_in .user .log-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   text-align: center;
   margin-left: 30px;
 }
@@ -193,8 +214,11 @@ body {
 }
 
 .top .sign_log_in .coach .sign_up {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   text-align: center;
   padding-left: 35px;
 }
@@ -209,8 +233,11 @@ body {
 }
 
 .top .sign_log_in .coach .log-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   text-align: center;
   padding-left: 35px;
 }
@@ -261,7 +288,8 @@ body {
 }
 
 .create .box .list {
-  transform: 0.5 all;
+  -webkit-transform: 0.5 all;
+          transform: 0.5 all;
 }
 
 .create .box .list .debate {
@@ -280,7 +308,9 @@ body {
 
 .create .box .list:hover {
   background-color: #defad3;
-  transform: scale(1.05, 1.05);
+  -webkit-transform: scale(1.05, 1.05);
+          transform: scale(1.05, 1.05);
+  -webkit-transition: 1s all;
   transition: 1s all;
   cursor: pointer;
 }
@@ -298,6 +328,8 @@ body {
 }
 
 .QandA-2 .connecting {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -345,3 +377,10 @@ body {
   margin-right: 8px;
   margin-left: -21px;
 }
+
+.footer .page-reverse {
+  width: 50px;
+  height: 50px;
+  margin: 10px 0 20px 0;
+}
+/*# sourceMappingURL=debate-index.css.map */
