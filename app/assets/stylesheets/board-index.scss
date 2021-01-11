@@ -29,9 +29,10 @@ body {
   }
   .board-group {
     display: flex;
+    align-items: center;
     width: 100%;
     .board-post {
-      width: 30%;
+      width: 25%;
       margin-top: 30px;
       .style {
         font-weight: bold;
