@@ -1,0 +1,98 @@
+@charset "UTF-8";
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+body {
+  font-family: メイリオ;
+  color: #333;
+  font-size: 20px;
+  line-height: 1.6875;
+  height: 800px;
+  margin: 0;
+}
+
+.show {
+  text-align: center;
+  font-size: 14px;
+}
+
+.show h2 {
+  font-size: 36px;
+  margin: 50px 0 80px 0;
+}
+
+.show h2 span {
+  background: rgba(0, 0, 0, 0) -webkit-gradient(linear, left top, left bottom, color-stop(60%, transparent), color-stop(0%, #ffffbc)) repeat scroll 0 0;
+  background: rgba(0, 0, 0, 0) linear-gradient(transparent 60%, #ffffbc 0%) repeat scroll 0 0;
+}
+
+.show .show-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.show .show-group .show-left {
+  margin-top: 50px;
+}
+
+.show .show-group .show-left .show-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.show .show-group .show-left .show-title .title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.show .show-group .show-left .show-title .title-name {
+  background: rgba(0, 0, 0, 0) -webkit-gradient(linear, left top, left bottom, color-stop(90%, transparent), color-stop(0%, #ffb2d8)) repeat scroll 0 0;
+  background: rgba(0, 0, 0, 0) linear-gradient(transparent 90%, #ffb2d8 0%) repeat scroll 0 0;
+}
+
+.show .show-group .show-left .show-times {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.show .show-group .show-left .show-times .time {
+  font-weight: bold;
+  margin: 0;
+}
+
+.show .show-group .show-left .show-times .time-name {
+  background: rgba(0, 0, 0, 0) -webkit-gradient(linear, left top, left bottom, color-stop(90%, transparent), color-stop(0%, #89c1fa)) repeat scroll 0 0;
+  background: rgba(0, 0, 0, 0) linear-gradient(transparent 90%, #89c1fa 0%) repeat scroll 0 0;
+  margin-bottom: 20px;
+}
+
+.show .show-group .show-left .alert span {
+  color: red;
+  font-size: 12px;
+}
+
+.show .show-group .show-left a {
+  text-decoration: none;
+  color: #333;
+}
+
+.show .show-group .show-left a:hover {
+  font-weight: bold;
+}
+/*# sourceMappingURL=board-show.css.map */
