@@ -1,35 +1,70 @@
-<p id="notice"></p>
-
-<h1>コーチの討論時間一覧</h1>
-
-
-
-<br>
-<% if coach_signed_in? %>
-  <%= link_to '討論予定時間をいれる', new_board_path %>/
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'board-index' %>
 <% end %>
-<% if user_signed_in? %>
-  <%= link_to '参加したい時間をコメントする', new_board_path %>/
-<% end %>
-<%= link_to 'トップへ戻る', root_path(@boards) %>
 
-<%= month_calendar events: @boards do |date, board| %>
-  <%= date.day %>
-
-  <% board.each do |board| %>
-    <div>
-    <% if board.coach_id.present? %>
-      ○<%= board.name %><br>
+<div class="board inner">
+  <h2 class="inner"><span>コーチの討論時間一覧</span></h2>
+  <div class="board-group">
+    <div class="board-post">
+    <%= form_with(model: @board, local: true) do |form| %>
       <% if coach_signed_in? %>
-        <%= link_to board.title, board_path(board) %><br>
-        <%= link_to board.start_time.strftime('%H:%M'), board_path(board) %><%= "〜" %>
-      <% else %>
-        <%= board.title %>
-        <%= board.start_time.strftime('%H:%M') %><%= "〜" %>
+        <div class="title">
+          <%= form.label :教える種目, class: "style" %>
+          <p><%= form.text_field :title %></p>
+        </div>
+
+        <div class="time">
+          <%= form.label :開始時間, class: "times" %>
+          <p><%= form.datetime_select :start_time %></p>
+        </div>
+
+        <div class="submit">
+          <%= form.submit "送信", class: "send" %>
+        </div>
+
+      <% else user_signed_in? %>
+        <div class="title">
+          <%= form.hidden_field :title %>
+        </div>
+
+        <div class="time">
+          <%= form.label :開始時間, class: "times" %>
+          <p><%= form.datetime_select :start_time %></p>
+        </div>
+
+        <div class="submit">
+          <%= form.submit "送信", class: "send" %>
+        </div>
+        <p class="caution"><span>※</span>参加したい講座と全く同じ時間を登録してください</p><br>
+        <% end %>
       <% end %>
-    <% else %>
-      ↪︎<%= board.name %>
+
+  <%= link_to 'トップへ戻る', root_path(@boards), class: "top" %><br><br>
+
+  <span class="saving"><%= flash[:notice] %></span>
+  </div>
+
+  <br>
+    
+  <div class="calendar">
+    <%= month_calendar events: @boards do |date, board| %>
+      <%= date.day %><br>
+
+      <% board.each do |board| %>
+        <% if board.coach_id.present? %>
+          ･<%= board.name %><br>
+          <% if coach_signed_in? %>
+            <%= link_to board.title, board_path(board), class: "b-title" %><br>
+            <%= link_to board.start_time.strftime('%H:%M'), board_path(board), class: "s_time" %><%= "〜" %><br>
+          <% else %>
+            <span class="b-title"><%= board.title %></span>
+            <span class="s_time"><%= board.start_time.strftime('%H:%M') %><%= "〜" %></span><br>
+          <% end %>
+        <% else %>
+          ↪︎<%= board.name %>
+        <% end %>
+      <% end %>
     <% end %>
     </div>
-  <% end %>
-<% end %>
+  </div>
+</div>
