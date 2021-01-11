@@ -40,13 +40,13 @@
           ･<%= board.name %><br>
           <% if coach_signed_in? %>
             <%= link_to board.title, board_path(board), class: "b-title" %><br>
-            <%= link_to board.start_time.strftime('%H:%M'), board_path(board), class: "s_time" %><%= "〜" %><br>
+            <span class="s_time"><%= link_to board.start_time.strftime('%H:%M'), board_path(board) %>〜</span><br>
           <% else %>
             <span class="b-title"><%= board.title %></span>
-            <span class="s_time"><%= board.start_time.strftime('%H:%M') %><%= "〜" %></span><br>
+            <span class="s_time"><%= board.start_time.strftime('%H:%M') %>〜</span><br>
           <% end %>
         <% else %>
-          ↪︎<%= board.name %>
+          ↪︎<span class="user_name"><%= board.name %></span>
         <% end %>
       <% end %>
     <% end %>
