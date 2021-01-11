@@ -20,4 +20,5 @@ Rails.application.config.assets.precompile += %w(
    board-index.css
    board-show.css
    board-edit.css
+   debate_new.css
   )
