@@ -1,0 +1,63 @@
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: content-box;
+}
+
+$primary-color: #3EA1D1;
+$font-color: #333;
+
+body {
+  font-family: メイリオ;
+  color: $font-color;
+  font-size: 20px;
+  line-height: 1.6875;
+  height: 800px;
+  margin: 0;
+}
+
+.debate-board {
+  display: flex;
+  .debate {
+    margin-top: 30px;
+    .chat-name {
+      font-weight: bold;
+      background:rgba(0, 0, 0, 0) linear-gradient(transparent 80%, #ffb2d8 0%) repeat scroll 0 0;
+    }
+    .time {
+      font-weight: bold;
+      background:rgba(0, 0, 0, 0) linear-gradient(transparent 80%, #89c1fa 0%) repeat scroll 0 0;
+    }
+    .debate-member span {
+      background:rgba(0, 0, 0, 0) linear-gradient(transparent 80%, #92fa89 0%) repeat scroll 0 0;
+      margin-bottom: 30px;
+    }
+    .submit {
+      margin: 30px 0 20px 0;
+      .send {
+        background-color: #fff;
+        text-align: center;
+        border: 2px rgb(231, 231, 73) solid;
+        width: 200px;
+      }
+      .send:hover {
+        border-radius: 10px;
+        cursor: pointer;
+        opacity: 0.8;
+        border: none;
+        background-color: rgb(247, 253, 158);
+        width: 240px;
+        height: 30px;
+        border: 2px rgb(231, 231, 73) solid;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: $font-color;
+    }
+    a:hover {
+      font-weight: bold;
+    }
+  }
+}

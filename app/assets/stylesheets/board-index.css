@@ -40,7 +40,7 @@ body {
 
 .board .board-group .board-post {
   width: 30%;
-  padding-top: 50px;
+  margin-top: 30px;
 }
 
 .board .board-group .board-post .style {
@@ -128,5 +128,10 @@ body {
 
 .calendar a:hover {
   font-weight: bold;
+}
+
+.calendar .user_name {
+  background: rgba(0, 0, 0, 0) -webkit-gradient(linear, left top, left bottom, color-stop(80%, transparent), color-stop(0%, #92fa89)) repeat scroll 0 0;
+  background: rgba(0, 0, 0, 0) linear-gradient(transparent 80%, #92fa89 0%) repeat scroll 0 0;
 }
 /*# sourceMappingURL=board-index.css.map */

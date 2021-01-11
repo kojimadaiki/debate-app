@@ -44,7 +44,7 @@
             <span class="s_time"><%= board.start_time.strftime('%H:%M') %>〜</span><br>
           <% end %>
         <% else %>
-          ↪︎<%= board.name %>
+          ↪︎<span class="user_name"><%= board.name %></span>
         <% end %>
       <% end %>
     <% end %>

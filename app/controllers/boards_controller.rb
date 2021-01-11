@@ -23,14 +23,14 @@ class BoardsController < ApplicationController
       current_user.present?
       Board.create(boards_parameter)
     end
-    flash[:notice] = '討論時間を登録しました。'
+    flash[:aiueo] = '討論時間を登録しました。'
     redirect_to boards_path
   end
 
   def destroy
     @board = Board.find(params[:id])
     @board.destroy
-    flash[:notice] = '討論時間を削除しました。'
+    flash[:aiueo] = '討論時間を削除しました。'
     redirect_to boards_path
   end
 
@@ -42,7 +42,7 @@ class BoardsController < ApplicationController
   def update
     @board = Board.find(params[:id])
     if @board.update(board_parameter)
-      flash[:notice] = '討論時間を更新しました。'
+      flash[:aiueo] = '討論時間を更新しました。'
       redirect_to boards_path
     else
       render 'edit'
