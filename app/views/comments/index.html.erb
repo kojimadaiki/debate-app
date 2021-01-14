@@ -1,44 +1,46 @@
-  <div class="side-bar">
-    <div class="side-bar-top">
-      <div class="side-bar-top-left">
-      <% if coach_signed_in? %>
-        <%=  current_coach.name %>
-      <% end %>
-      <% if user_signed_in? %>
-        <%=  current_user.name %>
-      <% end %>
-      </div>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'debate_comment' %>
+<% end %>
+  
+<div class="chat-top inner">
+  <div class="chat-header">
+    <div class="header-logo">
+      <p><img src="/images/logo.png" id="image"></p>
     </div>
-    
-
-  <div class="chat">
-  <div class="chat-top">
-    <div class="chat-top-left">
-      <%= @debate.name %>
+    <div class="header-top">
+      <p><span><%= @debate.name %></span></p>
     </div>
-    <div class="chat-top-right">
-      <%= link_to 'チャットを終了する', debate_path(@debate), method: :delete %>
+    <div class="chat-finish">
+      <p><%= link_to 'ディベートの終了', debate_path(@debate), method: :delete %>/</p>
+      <p><%= link_to 'トップへ戻る', root_path %></p>
     </div>
   </div>
+</div>
 
-  <table id="post">
+  <div class="chat-page inner">
     <%= render 'comments/post', comments: @commented %>
-  </table>
+  </div>
 
+  <div class="list"></div>
 
-  <%= form_with model: [@debate, @comment], class: 'chat-bottom', data: {remote: true}, id: "form", local: true do |f| %>
-    <div class="form">
-      <%= f.text_field :content, class: 'form-left', placeholder: 'コメント入力', id: "text" %><br>
-      <div class="image-file">
-        <%= f.label :image %><br>
-        <%= f.file_field :image, class: 'hidden' %>
+  <%= form_with model: [@debate, @comment], url: debate_comments_path, method: :post, id: "form", local: true do |f| %>
+    <div class="form inner">
+      <div class="image-video">
+        <label class="form-image">
+          <span><img src="/images/img.png"></span>
+          <%= f.file_field :image, class: 'hidden form__image-field js-form__image-field' %>
+        </label>
+        <label class="form-video">
+          <span><img src="/images/video2.png"></span>
+          <%= f.file_field :video, :accept => 'video/*', class: "form__video-field js-form__video-field hidden" %>
+        </label>
       </div>
-      <div class="field">
-        <%= f.label :video %><br>
-        <%= f.file_field :video, :accept => 'video/*' %>
+      <div class="form-content">
+        <%= f.text_field :content, class: 'form__text-field js-form__text-field hidden contents', placeholder: 'コメント入力', id: "content" %>
+        <%= f.button '▶︎', id: "submit", class: "submit" %>
       </div>
     </div>
-    <%= f.submit '送信', class: 'form-right' %>
   <% end %>
-  <%= link_to 'トップに戻る', root_path %>
-</div>
+
+
+  
