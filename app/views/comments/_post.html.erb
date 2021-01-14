@@ -1,7 +1,7 @@
   <% if user_signed_in? %>
     <% @comments.each do |comment| %>
-      <% if comment.coach_id.present? %>
-        <div class="user_sign">
+      <div class="user_sign">
+        <% if comment.coach_id.present? %>
           <div class="c_message inner">
             <span class="message-time"><%= l comment.created_at %></span><br>
             <% unless comment.image.attached? || comment.video.attached? %>
@@ -9,32 +9,31 @@
             <% end %>
             <% if comment.image.attached? %>
               <p class="image"><%= image_tag comment.image %></p><br>
+            <% end %>
             <% if comment.video.attached? %>
               <video src="<%= rails_blob_path(comment.video) %>"  class="video", type="video/mp4" controls></video><br>
             <% end %>
           </div>
-      <% end %>
+        <% else %>
+          <div class="u_message inner">
+            <span class="message-time"><%= l comment.created_at %></span><br>
+            <% unless comment.image.attached? || comment.video.attached? %>
+              <span class="message-content"><%= comment.content %></span><br>
+            <% end %>
+            <% if comment.image.attached? %>
+              <p class="image"><%= image_tag comment.image %></p><br>
+            <% end %>
+            <% if comment.video.attached? %>
+              <video src="<%= rails_blob_path(comment.video) %>"  class="video", type="video/mp4" controls></video><br>
+            <% end %>
+          </div>
+        <% end %>
       </div>
-    <% else %>
-      <div class="u_message inner">
-        <span class="message-time"><%= l comment.created_at %></span><br>
-        <% unless comment.image.attached? || comment.video.attached? %>
-          <span class="message-content"><%= comment.content %></span><br>
-        <% end %>
-        <% if comment.image.attached? %>
-          <p class="image"><%= image_tag comment.image %></p><br>
-        <% end %>
-        <% if comment.video.attached? %>
-          <video src="<%= rails_blob_path(comment.video) %>"  class="video", type="video/mp4" controls></video><br>
-        <% end %>
-      </div>
-      <% end %>
     <% end %>
-    </div>
   <% else coach_signed_in? %>
     <% @comments.each do |comment| %>
-      <% if comment.coach_id.present? %>
-        <div class="coach_sign">
+      <div class="coach_sign">
+        <% if comment.coach_id.present? %>
           <div class="coach_message inner">
             <span class="message-time"><%= l comment.created_at %></span><br>
             <% unless comment.image.attached? || comment.video.attached? %>
@@ -42,31 +41,25 @@
             <% end %>
             <% if comment.image.attached? %>
               <p class="image"><%= image_tag comment.image %></p><br>
+            <% end %>
             <% if comment.video.attached? %>
               <video src="<%= rails_blob_path(comment.video) %>"  class="video", type="video/mp4" controls></video><br>
             <% end %>
           </div>
-      <% end %>
+        <% else %>
+          <div class="user_message inner">
+            <span class="message-time"><%= l comment.created_at %></span><br>
+            <% unless comment.image.attached? || comment.video.attached? %>
+              <span class="message-content"><%= comment.content %></span><br>
+            <% end %>
+            <% if comment.image.attached? %>
+              <p class="image"><%= image_tag comment.image %></p><br>
+            <% end %>
+            <% if comment.video.attached? %>
+              <video src="<%= rails_blob_path(comment.video) %>"  class="video", type="video/mp4" controls></video><br>
+            <% end %>
+          </div>
+        <% end %>
       </div>
-    <% else %>
-      <div class="user_message inner">
-        <span class="message-time"><%= l comment.created_at %></span><br>
-        <% unless comment.image.attached? || comment.video.attached? %>
-          <span class="message-content"><%= comment.content %></span><br>
-        <% end %>
-        <% if comment.image.attached? %>
-          <p class="image"><%= image_tag comment.image %></p><br>
-        <% end %>
-        <% if comment.video.attached? %>
-          <video src="<%= rails_blob_path(comment.video) %>"  class="video", type="video/mp4" controls></video><br>
-        <% end %>
-      </div>
-      <% end %>
     <% end %>
-  </div>
   <% end %>
-
-
-</div>
-
-  
