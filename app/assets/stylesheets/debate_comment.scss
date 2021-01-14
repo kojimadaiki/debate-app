@@ -1,0 +1,216 @@
+.inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: content-box;
+}
+
+$primary-color: #3EA1D1;
+$font-color: #333;
+
+body {
+  font-family: メイリオ;
+  color: $font-color;
+  font-size: 20px;
+  line-height: 1.6875;
+  height: 800px;
+  margin: 0;
+}
+
+.chat-top {
+  position: sticky;
+  background-color: #fff;
+  top: 0;
+  .chat-header {
+    display: flex;
+    .header-logo {
+      #image {
+        width: 200px;
+        padding-top: 10px;
+      }
+    }
+    .header-top {
+      font-size: 32px;
+      text-align: center;
+      width: calc(100% - 410px);
+      p span {
+        background:rgba(0, 0, 0, 0) linear-gradient(transparent 60%, #ffffbc 0%) repeat scroll 0 0;
+      }
+    }
+    .chat-finish {
+      font-size: 14px;
+      display: flex;
+      width: 210px;
+      padding: 80px 0 0 0;
+      a {
+        text-decoration: none;
+        color: $font-color;
+      }
+      a:hover {
+        color: red;
+        font-weight: bold;
+      }
+    }
+  }
+}
+  
+  .chat-page {
+    background-color: rgb(233, 236, 205);
+    border-radius: 10px 10px 0 0;
+    padding: 20px 0 30px 0;
+    height: calc(100vh - 70px);
+    overflow: scroll;
+    .user_sign {
+      .c_message {
+        .message-time {
+          font-size: 8px;
+        }
+        .message-content {
+          font-size: 20px;
+          border: 1px solid black;
+          border-radius: 8px 8px 8px 0;
+          background-color: rgb(245, 252, 151);
+          padding: 5px;
+        }
+        .image {
+          width: 300px;
+          height: 250px;
+        }
+        .video {
+          width: 300px;
+          height: 250px;
+        }
+      }
+      .u_message {
+        text-align: right;
+        .message-content {
+          border: 1px solid black;
+          border-radius: 8px 8px 0 8px;
+          background-color:  rgb(141, 250, 208);
+          padding: 5px;
+        }
+        .message-time {
+          font-size: 8px;
+        }
+        .image {
+          width: 300px;
+          height: 250px;
+          margin: 0 0 0 auto;
+        }
+        .video {
+          width: 300px;
+          height: 250px;
+          margin: 0 0 0 auto;
+        }
+      }
+    }
+    .coach_sign {
+      .coach_message {
+        text-align: right;
+        .message-time {
+          font-size: 8px;
+        }
+        .message-content {
+          font-size: 20px;
+          border: 1px solid black;
+          border-radius: 8px 8px 0 8px;
+          background-color: rgb(141, 250, 208);
+          padding: 5px;
+        }
+        .image {
+          width: 300px;
+          height: 250px;
+          margin: 0 0 0 auto;
+        }
+        .video {
+          width: 300px;
+          height: 250px;
+          margin: 0 0 0 auto;
+        }
+      }
+        .user_message {
+          .message-content {
+            border: 1px solid black;
+            border-radius: 8px 8px 8px 0;
+            background-color:  rgb(245, 252, 151);
+            padding: 5px;
+          }
+          .message-time {
+            font-size: 8px;
+          }
+          .image {
+            width: 300px;
+            height: 250px;
+          }
+          .video {
+            width: 300px;
+            height: 250px;
+          }
+        }
+    }
+  }
+
+  #form {
+    padding-bottom: 50px;
+  }
+
+  .form {
+    background-color: rgb(245, 250, 182);
+    height: 100px;
+    display: flex;
+    width: 720px;
+    align-items: center;
+    border-radius: 0 0 10px 10px;
+    .image-video {
+      display: flex;
+      padding-top: 8px;
+      .form-image {
+        margin-right: 20px;
+        .hidden {
+          display: none;
+        }
+      }
+      .form-image:hover {
+        cursor: pointer;
+      }
+      .form-video {
+        margin-right: 20px;
+        .hidden {
+          display: none;
+        }
+      }
+      .form-video:hover {
+        cursor: pointer;
+      }
+    }
+    .form-content {
+      display: flex;
+      width: 100%;
+      .contents {
+        width: calc(100% - 100px);
+        height: 35px;
+        padding: 0 10px;
+        margin-right: 10px;
+        border-radius: 20px;
+        margin-top: 20px;
+      }
+      .submit {
+        width: 60px;
+        border: none;
+        background-color: transparent;
+        font-size: 48px;
+        color: rgb(152, 243, 238);
+        margin-top: 5px;
+      }
+      .submit:hover {
+        cursor: pointer;
+        color: rgb(83, 240, 232)
+      }
+    }
+  }
+
+  .chat-finish {
+    background-color: #fff;
+    height: 30px;
+    padding-bottom: 50px;
+  }
