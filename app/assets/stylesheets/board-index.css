@@ -38,11 +38,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
 }
 
 .board .board-group .board-post {
-  width: 25%;
+  width: 30%;
   margin-top: 30px;
 }
 
@@ -103,10 +102,6 @@ body {
   font-size: 16px;
   background: rgba(0, 0, 0, 0) -webkit-gradient(linear, left top, left bottom, color-stop(80%, transparent), color-stop(0%, #ffffbc)) repeat scroll 0 0;
   background: rgba(0, 0, 0, 0) linear-gradient(transparent 80%, #ffffbc 0%) repeat scroll 0 0;
-}
-
-.calendar {
-  width: 70%;
 }
 
 .calendar .calendar-heading .calendar-title {

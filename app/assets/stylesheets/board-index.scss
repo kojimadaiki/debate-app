@@ -30,9 +30,8 @@ body {
   .board-group {
     display: flex;
     align-items: center;
-    width: 100%;
     .board-post {
-      width: 25%;
+      width: 30%;
       margin-top: 30px;
       .style {
         font-weight: bold;
@@ -84,7 +83,6 @@ body {
   }
 }
   .calendar {
-    width: 70%;
     .calendar-heading {
       .calendar-title {
         font-size: 26px;
