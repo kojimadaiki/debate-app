@@ -70,7 +70,3 @@ gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 
 gem 'jquery-rails'
-
-gem 'bootstrap', '~> 4.4.1'
-
-gem 'execjs'

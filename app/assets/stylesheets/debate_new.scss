@@ -19,8 +19,8 @@ body {
 
 .debate-board {
   display: flex;
+  align-items: center;
   .debate {
-    margin-top: 30px;
     .chat-name {
       font-weight: bold;
       background:rgba(0, 0, 0, 0) linear-gradient(transparent 80%, #ffb2d8 0%) repeat scroll 0 0;

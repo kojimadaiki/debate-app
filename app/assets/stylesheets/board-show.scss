@@ -20,55 +20,56 @@ body {
 .show {
   text-align: center;
   font-size: 14px;
-  h2 {
-    font-size: 36px;
-    margin: 50px 0 80px 0;
-    span {
-      background:rgba(0, 0, 0, 0) linear-gradient(transparent 60%, #ffffbc 0%) repeat scroll 0 0;
-    }
-  }
-  .show-group {
-    display: flex;
-    .show-left {
-      margin-top: 50px;
-      .show-title {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin-bottom: 20px;
-        .title {
-          font-weight: bold;
-          margin: 0;
-        }
-        .title-name {
-          background:rgba(0, 0, 0, 0) linear-gradient(transparent 90%, #ffb2d8 0%) repeat scroll 0 0;
-        }
+    h2 {
+      font-size: 36px;
+      margin: 50px 0 80px 0;
+      span {
+        background:rgba(0, 0, 0, 0) linear-gradient(transparent 60%, #ffffbc 0%) repeat scroll 0 0;
       }
-      .show-times {
-        display: flex;
-        justify-content: center;
-        .time {
-          font-weight: bold;
-          margin: 0;
-        }
-        .time-name {
-          background:rgba(0, 0, 0, 0) linear-gradient(transparent 90%, #89c1fa 0%) repeat scroll 0 0;
+    }
+    .show-group {
+      display: flex;
+      align-items: center;
+      .show-left {
+        margin-top: 50px;
+        width: 30%;
+        .show-title {
+          display: flex;
+          justify-content: center;
           margin-bottom: 20px;
+          .title {
+            font-weight: bold;
+            margin: 0;
+          }
+          .title-name {
+            background:rgba(0, 0, 0, 0) linear-gradient(transparent 90%, #ffb2d8 0%) repeat scroll 0 0;
+          }
         }
-      }
-      .alert {
-        span {
-          color: red;
-          font-size: 12px;
+        .show-times {
+          display: flex;
+          justify-content: center;
+          .time {
+            font-weight: bold;
+            margin: 0;
+          }
+          .time-name {
+            background:rgba(0, 0, 0, 0) linear-gradient(transparent 90%, #89c1fa 0%) repeat scroll 0 0;
+            margin-bottom: 20px;
+          }
         }
-      }
-      a {
-        text-decoration: none;
-        color: $font-color;
-      }
-      a:hover {
-        font-weight: bold;
+        .alert {
+          span {
+            color: red;
+            font-size: 12px;
+          }
+        }
+        a {
+          text-decoration: none;
+          color: $font-color;
+        }
+        a:hover {
+          font-weight: bold;
+        }
       }
     }
   }
-}
