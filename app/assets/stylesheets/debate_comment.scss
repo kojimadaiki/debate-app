@@ -21,6 +21,7 @@ body {
   position: sticky;
   background-color: #fff;
   top: 0;
+  z-index: 100;
   .chat-header {
     display: flex;
     .header-logo {

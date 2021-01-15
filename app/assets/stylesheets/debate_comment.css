@@ -19,6 +19,7 @@ body {
   position: sticky;
   background-color: #fff;
   top: 0;
+  z-index: 100;
 }
 
 .chat-top .chat-header {

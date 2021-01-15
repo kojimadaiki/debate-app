@@ -1,5 +1,6 @@
-  <% if user_signed_in? %>
-    <% @comments.each do |comment| %>
+<% if user_signed_in? %>
+  <% @commented.each do |comment| %>
+    <% if comment.debate_id == @debate.id %>
       <div class="user_sign">
         <% if comment.coach_id.present? %>
           <div class="c_message inner">
@@ -30,8 +31,10 @@
         <% end %>
       </div>
     <% end %>
-  <% else coach_signed_in? %>
-    <% @comments.each do |comment| %>
+  <% end %>
+<% else coach_signed_in? %>
+  <% @commented.each do |comment| %>
+    <% if comment.debate_id == @debate.id %>
       <div class="coach_sign">
         <% if comment.coach_id.present? %>
           <div class="coach_message inner">
@@ -63,3 +66,4 @@
       </div>
     <% end %>
   <% end %>
+<% end %>
