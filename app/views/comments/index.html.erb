@@ -18,12 +18,12 @@
 </div>
 
   <div class="chat-page inner">
-    <%= render 'comments/post', comments: @commented %>
+    <%= render 'post', comments: @commented %>
   </div>
 
   <div class="list"></div>
 
-  <%= form_with model: [@debate, @comment], url: debate_comments_path, method: :post, id: "form", local: true do |f| %>
+  <%= form_with model: [@debate, @comment], method: :post, id: "form", remote: true do |f| %>
     <div class="form inner">
       <div class="image-video">
         <label class="form-image">
@@ -37,7 +37,7 @@
       </div>
       <div class="form-content">
         <%= f.text_field :content, class: 'form__text-field js-form__text-field hidden contents', placeholder: 'コメント入力', id: "content" %>
-        <%= f.button '▶︎', id: "submit", class: "submit" %>
+        <%= f.submit '▶︎', id: "submit", class: "submit" %>
       </div>
     </div>
   <% end %>
