@@ -83,7 +83,7 @@ body {
 }
 
 .main {
-  background-image: url(/images/katsunowa.png);
+  background-image: image-url("katsunowa.png");
   background-size: cover;
   height: 700px;
   width: 1280px;
