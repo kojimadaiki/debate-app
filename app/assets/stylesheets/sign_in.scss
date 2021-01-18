@@ -1,0 +1,129 @@
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: content-box;
+}
+
+$primary-color: #3EA1D1;
+$font-color: #333;
+
+body {
+  font-family: 'sans-serif',"Hiragino Mincho ProN", "ヒラギノ明朝 ProN";
+  color: $font-color;
+  font-size: 16px;
+  line-height: 1.6875;
+  height: 800px;
+}
+
+
+
+.login {
+  background-image: url(/images/ダウンロード2.png);
+  background-size: auto;
+  h2 {
+    padding-top: 80px;
+  }
+  .active {
+    color: $primary-color;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 50px;
+    span {
+      padding-bottom: 10px;
+      border-bottom: 2px solid $primary-color;
+    }
+  }
+
+  p {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 50px;
+    span {
+      color: red;
+    }
+  }
+
+  .form-group {
+    .field {
+      justify-content: center;
+      display: flex;
+      margin-bottom: 30px;
+      text-align: center;
+      align-items: center;
+      span {
+        font-size: 8px;
+        color: red;
+
+      }
+      .one{
+        background-color: rgb(123, 191, 218);
+        width: 220px;
+        margin-right: 10px;
+        height: 34px;
+      }
+      .item {
+        font-size: 18px;
+        color: rgb(255, 255, 255);
+      }
+      .form {
+        width: 350px;
+        border-radius: 3px;
+        border: rgb(195, 231, 252) solid 1px;
+        height: 32px;
+
+      }
+    }
+    .actions {
+      text-align: center;
+      margin-top: 80px;
+      .action {
+        font-size: 16px;
+        width: 220px;
+        height: 50px;
+        color: $primary-color;
+        border: rgb(195, 231, 252) solid 2px;
+        background-color: #fff;
+        margin-bottom: 30px;
+      }
+      .action:hover {
+        color: white;
+        border: white solid 2px;
+        background-color: rgb(119, 202, 235);
+        width: 240px;
+        border-radius: 10px;
+      }
+    }
+  }
+  .links {
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+    .link1 {
+      margin-right: 3px;
+      text-decoration: none;
+      color: rgb(119, 202, 250);
+    }
+    .link1:hover {
+      color: rgb(23, 78, 110);
+      border-bottom: 1px rgb(252, 164, 164) solid;
+    }
+    .link2 {
+      margin-right: 3px;
+      text-decoration: none;
+      color: rgb(119, 202, 250);
+    }
+    .link2:hover {
+      color: rgb(23, 78, 110);
+      border-bottom: 1px rgb(252, 164, 164) solid;
+    }
+    .link3 {
+      text-decoration: none;
+      color: rgb(119, 202, 250);
+    }
+    .link3:hover {
+      color: rgb(23, 78, 110);
+      border-bottom: 1px rgb(252, 164, 164) solid;
+    }
+  }
+}
