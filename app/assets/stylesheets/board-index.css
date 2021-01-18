@@ -104,6 +104,10 @@ body {
   background: rgba(0, 0, 0, 0) linear-gradient(transparent 80%, #ffffbc 0%) repeat scroll 0 0;
 }
 
+.calendar {
+  width: 70%;
+}
+
 .calendar .calendar-heading .calendar-title {
   font-size: 26px;
   margin: 0 30px;
