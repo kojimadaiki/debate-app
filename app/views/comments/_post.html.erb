@@ -9,7 +9,7 @@
               <span class="message-content"><%= comment.content %></span><br>
             <% end %>
             <% if comment.image.attached? %>
-              <p class="image"><%= image_tag comment.image %></p><br>
+              <p class="image"><%= image_tag asset_path(comment.image) %></p><br>
             <% end %>
             <% if comment.video.attached? %>
               <video src="<%= rails_blob_path(comment.video) %>"  class="video", type="video/mp4" controls></video><br>
@@ -22,7 +22,7 @@
               <span class="message-content"><%= comment.content %></span><br>
             <% end %>
             <% if comment.image.attached? %>
-              <p class="image"><%= image_tag comment.image %></p><br>
+              <p class="image"><%= image_tag asset_path(comment.image) %></p><br>
             <% end %>
             <% if comment.video.attached? %>
               <video src="<%= rails_blob_path(comment.video) %>"  class="video", type="video/mp4" controls></video><br>
@@ -43,7 +43,7 @@
               <span class="message-content"><%= comment.content %></span><br>
             <% end %>
             <% if comment.image.attached? %>
-              <p class="image"><%= image_tag comment.image %></p><br>
+              <p class="image"><%= image_tag asset_path(comment.image) %></p><br>
             <% end %>
             <% if comment.video.attached? %>
               <video src="<%= rails_blob_path(comment.video) %>"  class="video", type="video/mp4" controls></video><br>
@@ -56,7 +56,7 @@
               <span class="message-content"><%= comment.content %></span><br>
             <% end %>
             <% if comment.image.attached? %>
-              <p class="image"><%= image_tag comment.image %></p><br>
+              <p class="image"><%= image_tag asset_path(comment.image) %></p><br>
             <% end %>
             <% if comment.video.attached? %>
               <video src="<%= rails_blob_path(comment.video) %>"  class="video", type="video/mp4" controls></video><br>
