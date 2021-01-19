@@ -38,7 +38,7 @@ body {
 
   p {
     font-size: 12px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-align: center;
     span {
       color: red;
@@ -46,6 +46,21 @@ body {
   }
 
   .form-group {
+    #error_explanation {
+      text-align: center;
+      h2 {
+        margin: 10px 0;
+        padding: 0;
+        font-size: 16px;
+        color: red;
+      }
+      ul {
+        margin-bottom: 20px;
+        li {
+          list-style: none;
+        }
+      }
+    }
     .field {
       justify-content: center;
       display: flex;
@@ -92,6 +107,7 @@ body {
         background-color: rgb(119, 202, 235);
         width: 240px;
         border-radius: 10px;
+        border: none;
       }
     }
   }
