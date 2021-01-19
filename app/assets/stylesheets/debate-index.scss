@@ -136,6 +136,12 @@ body {
       .list:last-child {
         border-bottom: none;
       }
+      .member:hover {
+        background-color: rgb(222, 250, 211);
+        transform: scale(1.05,1.05);
+        transition: 1s all;
+        cursor: pointer;
+      }
       .list:hover {
         background-color: rgb(222, 250, 211);
         transform: scale(1.05,1.05);
