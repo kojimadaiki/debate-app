@@ -47,9 +47,9 @@
           <% end %>
         <% else %>
           <% if user_signed_in? %>
-            ↪︎<span class="user_name"><%= link_to board.name, board_path(board) %></span>
+            ↪︎<span class="user_name"><%= link_to board.name, board_path(board) %></span><br>
           <% else %>
-            ↪︎<span class="user_name"><%= board.name %></span>
+            ↪︎<span class="user_name"><%= board.name %></span><br>
           <% end %>
         <% end %>
       <% end %>
