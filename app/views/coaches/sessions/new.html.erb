@@ -7,40 +7,40 @@
 
   <p><span>※</span>は入力必須項目です</p>
 
-<%= form_with model: @coach, url: coach_session_path, class: "form-group",  local: true do |f| %>
-  <%= render "coaches/shared/error_messages", resource: resource %>
+  <%= form_with model: @coach, url: coach_session_path, class: "form-group",  local: true do |f| %>
+    <%= render "coaches/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <span class="one"><%= f.label :お名前, class: "item" %><span>※</span></span><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form" %>
-  </div>
+    <div class="field">
+      <span class="one"><%= f.label :お名前, class: "item" %><span>※</span></span><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form" %>
+    </div>
 
-  <div class="field">
-    <span class="one"><%= f.label :メールアドレス, class: "item" %><span>※</span></span><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form" %>
-  </div>
+    <div class="field">
+      <span class="one"><%= f.label :メールアドレス, class: "item" %><span>※</span></span><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form" %>
+    </div>
 
-  <div class="field">
-    <span class="one"><%= f.label :'パスワード(6文字以上)', class: "item"  %><span>※</span></span>
-    <% if @minimum_password_length %>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "form" %>
-  </div>
+    <div class="field">
+      <span class="one"><%= f.label :'パスワード(6文字以上)', class: "item"  %><span>※</span></span>
+      <% if @minimum_password_length %>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "form" %>
+    </div>
 
-  <div class="field">
-    <span class="one"><%= f.label :パスワード（確認用）, class: "item" %><span>※</span></span><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form" %>
-  </div>
+    <div class="field">
+      <span class="one"><%= f.label :パスワード（確認用）, class: "item" %><span>※</span></span><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form" %>
+    </div>
 
-  <div class="field">
-   <span class="one"><%= f.label :教えられる種目, class: "item" %><span>※</span></span><br />
-    <%= f.text_field :teach_style, autofocus: true, autocomplete: "teach_style", class: "form" %>
-  </div>
+    <div class="field">
+    <span class="one"><%= f.label :教えられる種目, class: "item" %><span>※</span></span><br />
+      <%= f.text_field :teach_style, autofocus: true, autocomplete: "teach_style", class: "form" %>
+    </div>
 
-  <div class="actions inner">
-    <%= f.submit "ログイン", class: "action" %>
-  </div>
-<% end %>
+    <div class="actions inner">
+      <%= f.submit "ログイン", class: "action" %>
+    </div>
+  <% end %>
 
   <div class="links">
     <%= link_to 'ユーザーログイン/', new_user_session_path, class: "link1" %>
@@ -48,6 +48,5 @@
     <%= link_to '新規ユーザー登録', new_user_registration_path, class: "link3" %>
   </div>
 
-<%#= render "coaches/shared/links" %>
 
 </div>

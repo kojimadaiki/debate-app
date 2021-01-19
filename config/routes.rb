@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :boards
-  resources :debates do
-    resources :comments
+  resources :debates, only: [:index, :new, :create, :destroy] do
+    resources :comments, only: [:index, :create]
   end
   devise_for :coaches, controllers: {
   sessions:      'coaches/sessions',

@@ -94,106 +94,6 @@ body {
     }
   }
 }
-  .top {
-    margin-top: 150px;
-    width: 1200px;
-    height: 500px;
-    .top-title {
-      text-align: center;
-      .member-groups {
-        padding-bottom: 30px;
-        font-size: 36px;
-      }
-    }
-    .sign_log_in {
-      display: flex;
-      text-align: center;
-      justify-content: center;
-      .user {
-        width: 45%;
-        text-align: center;
-        background-color: rgb(206, 230, 238);
-        border-radius: 50px;
-        h3 {
-          padding-top: 20px;
-          span {
-            color: rgb(24, 156, 189);
-          }
-        }
-        .sign_up {
-          display: flex;
-          justify-content: space-around;
-          text-align: center;
-          margin-left: 30px;
-          .user_sign_up {
-            text-decoration: none;
-            color: $font-color;
-          }
-          .user_sign_up:hover {
-            color: rgb(24, 156, 189);
-          }
-        }
-        .log-in {
-          display: flex;
-          justify-content: space-around;
-          text-align: center;
-          margin-left: 30px;
-          .user_log_in {
-            text-decoration: none;
-            color: $font-color;
-          }
-          .user_log_in:hover {
-            color: rgb(24, 156, 189);
-          }
-        }
-      }
-      div.vertical-line{
-        width: 0px;
-        height: 100%;
-        float: left; 
-        border: 1px inset;
-        margin: 0 30px;
-      }
-      .coach {
-        width: 45%;
-        text-align: center;
-        background-color: rgb(238, 237, 206);
-        border-radius: 50px;
-        h3 {
-          padding-top: 20px;
-          span {
-            color: rgb(189, 186, 24);
-          }
-        }
-        .sign_up {
-          display: flex;
-          justify-content: space-around;
-          text-align: center;
-          padding-left: 35px;
-          .coach_sign_up {
-            text-decoration: none;
-            color: $font-color;
-          }
-          .coach_sign_up:hover {
-            color: rgb(189, 186, 24);
-          }
-        }
-        .log-in {
-          display: flex;
-          justify-content: space-around;
-          text-align: center;
-          padding-left: 35px;
-          .coach_log_in {
-            text-decoration: none;
-            color: $font-color;
-          }
-          .coach_log_in:hover {
-            color: rgb(189, 186, 24);
-          }
-        }
-      }
-    }
-  }
 
   .create {
     margin-top: 100px;
@@ -235,6 +135,12 @@ body {
       }
       .list:last-child {
         border-bottom: none;
+      }
+      .member:hover {
+        background-color: rgb(222, 250, 211);
+        transform: scale(1.05,1.05);
+        transition: 1s all;
+        cursor: pointer;
       }
       .list:hover {
         background-color: rgb(222, 250, 211);

@@ -19,7 +19,7 @@
       <% elsif coach_signed_in? %>
         <p><%= link_to 'ログアウト', destroy_coach_session_path, method: :delete, class: "logout" %></p>
       <% else %>
-        <a href="#member"><p class="member">会員サイト</p></a>
+        <p><%= link_to '新規登録 / ログインへ', new_user_registration_path, class: "member" %></p>
       <% end %>
       <a href="#question"><p class="question">よくある質問</p></a>
     </div>
@@ -35,54 +35,7 @@
     </div>
   </div>
 
-  <% unless coach_signed_in? || user_signed_in? %>
-    <div class="top inner" id="member">
-      <div class="top-title">
-      <% unless coach_signed_in? %>
-      <% unless user_signed_in? %>
-        <h3 class="member-groups"><span>会員サイト</span></h3>
-      <% end %>
-      <% end %>
-      </div>
-      <div class="sign_log_in">
-        <div class="user">
-          <% unless coach_signed_in? %>
-          <% unless user_signed_in? %>
-            <h3><span>User</span>専用</h3>
-            <div class="sign_up">
-              <p>新規登録はこちら</p><p>⇨</p>
-              <p><%= link_to 'user新規登録する', new_user_registration_path, class:"user_sign_up" %></p><br>
-            </div>
-            <div class="log-in">
-              <p>ログインはこちら</p><p>⇨</p>
-              <p><%= link_to 'userログインする', new_user_session_path, class: "user_log_in" %></p><br>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-        <% unless coach_signed_in? %>
-        <% unless user_signed_in? %>
-          <div class="vertical-line" style="height: 300px"></div>
-        <% end %>
-        <% end %>
-        <div class="coach">
-          <% unless user_signed_in? %>
-          <% unless coach_signed_in? %>
-            <h3><span>Coach</span>専用</h3>
-            <div class="sign_up">
-              <p>新規登録はこちら</p><p>⇨</p>
-              <p><%= link_to 'coach新規登録する', new_coach_registration_path, class:"coach_sign_up" %></p><br>
-            </div>
-            <div class="log-in">
-              <p>ログインはこちら</p><p>⇨</p>
-              <p><%= link_to 'coachログインする', new_coach_session_path, class: "coach_log_in" %></p><br>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  <% else %>
+  <% if coach_signed_in? || user_signed_in? %>
   <div class="create inner" id="room">
     <h3>討論予定のルーム一覧</h3>
     <p><span>※</span>参加するルーム名を選んでください</p>
@@ -129,15 +82,15 @@
     </dl>
     <dl>
       <dt>どうやったら討論の予約ができるようになる？</dt>
-      <dd>まず初めにUser会員登録をお願いします。<br>User会員登録後は掲示板を確認していただいて、フォーマット通りに自身の都合の良い時間帯に行われる討論に参加する、とコメントをするだけです。</dd>
+      <dd>まず初めにユーザー会員登録をお願いします。<br>ユーザー会員登録後は掲示板を確認していただいて、ご自身の都合の良い時間帯に行われる討論に参加する、とコメントをするだけです。</dd>
     </dl>
     <dl>
       <dt>掲示板とは？</dt>
-      <dd>コーチ各々が討論を開始する時間を確認できるカレンダーです。<br>参加したい日付・時間帯と全く同じ時間を入力するだけです。すると掲示板カレンダーにご自身の会員登録時の名前が表示されます。討論はコーチとユーザーの一対一ですのでお早めの入力をオススメしています。右上の掲示板確認からページに飛ぶことができます。</dd>
+      <dd>コーチが討論を開始する時間を確認できるカレンダーです。<br>参加したい日付・時間と全く同じものを入力するだけです。すると掲示板カレンダーにご自身の会員登録時の名前が表示されます。討論はコーチとユーザーの一対一ですのでお早めの入力をオススメしています。右上の掲示板確認からページに飛ぶことができます。</dd>
     </dl>
     <dl>
       <dt>掲示板に入力したらそのあとはどうすればいい？</dt>
-      <dd>あとは時間までお待ち頂くだけです。<br>お時間になりましたら、討論予定のルーム一覧にルーム名が表示されます。担当コーチ・開始時間をご確認の上、ご自身が参加されるルーム名をクリックするとチャットルームページに飛ぶことができます。</dd>
+      <dd>あとは時間までお待ち頂くだけです。<br>お時間になりましたら、討論予定のルーム一覧にルーム名が表示されます。担当コーチ・開始時間をご確認の上、ご自身が参加されるルーム名をクリックするとチャットルームページに飛ぶことができます。お時間にはルームにお入りいただきますよう、お願いいたします。</dd>
     </dl>
   </div>
 
