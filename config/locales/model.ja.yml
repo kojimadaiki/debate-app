@@ -3,6 +3,7 @@ ja:
     models:
       user: ユーザー 
       board: 掲示板
+      coach: コーチ
     attributes:
       user:
         name: 名前
