@@ -1,36 +1,35 @@
 <div class="calendar inner">
 
-<%= form_with(model: @board, local: true) do |form| %>
-      <% if coach_signed_in? %>
-        <div class="title">
-          <%= form.label :教える種目, class: "style" %>
-          <p><%= form.text_field :title %></p>
-        </div>
+  <%= form_with(model: @board, local: true) do |form| %>
+    <% if coach_signed_in? %>
+      <div class="title">
+        <%= form.label :教える種目, class: "style" %>
+        <p><%= form.text_field :title %></p>
+      </div>
 
-        <div class="time">
-          <%= form.label :開始時間, class: "times" %>
-          <p><%= form.datetime_select :start_time %></p>
-        </div>
+      <div class="time">
+        <%= form.label :開始時間, class: "times" %>
+        <p><%= form.datetime_select :start_time %></p>
+      </div>
 
-        <div class="submit">
-          <%= form.submit "送信", class: "send" %>
-        </div>
+      <div class="submit">
+        <%= form.submit "送信", class: "send" %>
+      </div>
+    <% else user_signed_in? %>
+      <div class="title">
+        <%= form.hidden_field :title %>
+      </div>
 
-      <% else user_signed_in? %>
-        <div class="title">
-          <%= form.hidden_field :title %>
-        </div>
+      <div class="time">
+        <%= form.label :開始時間, class: "times" %>
+        <p><%= form.datetime_select :start_time %></p>
+      </div>
 
-        <div class="time">
-          <%= form.label :開始時間, class: "times" %>
-          <p><%= form.datetime_select :start_time %></p>
-        </div>
-
-        <div class="submit">
-          <%= form.submit "送信", class: "send" %>
-        </div>
-        <p>※参加したい講座と全く同じ時間を登録してください</p><br>
-        <% end %>
-      <% end %>
-      <%= link_to 'トップへ戻る', root_path(@boards), class: "top" %>
+      <div class="submit">
+        <%= form.submit "送信", class: "send" %>
+      </div>
+      <p>※参加したい講座と全く同じ時間を登録してください</p><br>
+    <% end %>
+  <% end %>
+  <%= link_to 'トップへ戻る', root_path(@boards), class: "top" %>
 </div>
