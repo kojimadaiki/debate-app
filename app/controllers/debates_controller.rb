@@ -1,5 +1,4 @@
 class DebatesController < ApplicationController
-  # before_action :correct_post, only: [:new]
 
   def index
     @debates = Debate.all
@@ -33,9 +32,4 @@ class DebatesController < ApplicationController
   def debate_params
     params.require(:debate).permit(:name, :start_time, coach_ids: [], user_id: [])
   end
-
-  # def correct_post
-  #   @debate = Debate.find(params[:id])
-  #   redirect_to debates_path unless @debate.coach_id == current_coach.id
-  # end
 end

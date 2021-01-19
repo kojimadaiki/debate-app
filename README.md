@@ -9,8 +9,8 @@
 | style        | string | null: false |
 
 # association
--has_many :debates, through: user_debate
 -has_many :comments
+-has_many :boards
 
 
 ## coachesテーブル
@@ -68,19 +68,7 @@
 
 # association
 -has_many :coaches
-
-
-## user_debatesテーブル
-
-
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| user          | references | null: false, foreign_key: true |
-| debate        | references | null: false, foreign_key: true |
-
-# association
--belongs_to :user
--belongs_to :debate
+-has_many :users
 
 
 ## coach_debateテーブル

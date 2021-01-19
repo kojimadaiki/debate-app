@@ -5,13 +5,6 @@ class Comment < ApplicationRecord
   has_one_attached :image
   has_one_attached :video
 
-  # comment = Comment.last
-  # comment.video.attach(
-  #   io: File.open,
-  #   filename: "video",
-  #   content_type: "text/plain"
-  #   )
-
   validates :content, presence: true, unless: :was_attached?
 
   def was_attached?
