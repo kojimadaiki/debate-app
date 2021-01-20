@@ -27,6 +27,11 @@ http://18.225.12.27/
 •AWS<br>
   ◦EC2<br>
   ◦S3<br>
+<dl>
+  <dt>•AWS</dt><br>
+    <dd>◦EC2</dd><br>
+    <dd>◦S3</dd><br>
+</dl>
 •RSpec<br>
 •Active Storage<br>
 •Simple_calendar<br>
@@ -36,10 +41,12 @@ http://18.225.12.27/
 
 ## 機能一覧
 •ユーザー登録、ログイン機能(devise)<br>
-•投稿機能<br>
-  ◦画像投稿(Active Storage, Ajax)<br>
-  ◦動画投稿(Active Storage, Ajax)<br>
-  ◦コメント投稿(Ajax)<br>
+<dl>
+  <dt>•投稿機能</dt><br>
+    <dd>◦画像投稿(Active Storage, Ajax)</dd><br>
+    <dd>◦動画投稿(Active Storage, Ajax)</dd><br>
+    <dd>◦コメント投稿(Ajax)</dd><br>
+</dl>
 •スムーズスクロール機能(Jquery)<br>
 •掲示板機能(Simple_calendar)<br>
 •日本語化表示<br>
