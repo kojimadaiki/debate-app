@@ -25,11 +25,8 @@ http://18.225.12.27/
 •MySQL 5.6.50<br>
 •Nginx<br>
 •AWS<br>
-  ◦EC2<br>
-  ◦S3<br>
-•AWS<br>
-  &nbsp;◦EC2<br>
-  &nbsp;◦S3<br>
+  &emsp;◦EC2<br>
+  &emsp;◦S3<br>
 •RSpec<br>
 •Active Storage<br>
 •Simple_calendar<br>
@@ -40,9 +37,9 @@ http://18.225.12.27/
 ## 機能一覧
 •ユーザー登録、ログイン機能(devise)<br>
 •投稿機能<br>
-  &nbsp;◦画像投稿(Active Storage, Ajax)<br>
-  &nbsp;◦動画投稿(Active Storage, Ajax)<br>
-  &nbsp;◦コメント投稿(Ajax)<br>
+  &emsp;◦画像投稿(Active Storage, Ajax)<br>
+  &emsp;◦動画投稿(Active Storage, Ajax)<br>
+  &emsp;◦コメント投稿(Ajax)<br>
 •スムーズスクロール機能(Jquery)<br>
 •掲示板機能(Simple_calendar)<br>
 •日本語化表示<br>
