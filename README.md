@@ -1,9 +1,9 @@
-## Connecting
+## ![logo](https://user-images.githubusercontent.com/74892623/105153631-01286a00-5b4c-11eb-8e72-6a3a4f8899ae.png)
 水泳の技術についてコーチと討論できるアプリです。<br>
 画像や動画を投稿できるので、視覚的に動作の改善を指導していただけます。<br>
 また、1対1なのでご自身の聞きたいことについて気兼ねなく聞くことができます。<br>
 ログイン方法はユーザーとコーチの二つがあります。<br>
-<img width="1920" alt="top" src="https://user-images.githubusercontent.com/74892623/105152351-65e2c500-5b4a-11eb-9181-77d8209eb9f7.png">
+<img width="2500px" alt="top" src="https://user-images.githubusercontent.com/74892623/105152351-65e2c500-5b4a-11eb-9181-77d8209eb9f7.png">
 
  
 
