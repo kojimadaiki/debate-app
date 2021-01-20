@@ -6,7 +6,7 @@
 <img width="2500px" alt="top" src="https://user-images.githubusercontent.com/74892623/105152351-65e2c500-5b4a-11eb-9181-77d8209eb9f7.png">
 
  以下がアプリの挙動です。<br>
- ![debate-app-coach](https://user-images.githubusercontent.com/74892623/105154254-b5c28b80-5b4c-11eb-90ba-54c91a30c95b.gif)
+ ![debate-app_coach](https://user-images.githubusercontent.com/74892623/105169164-7d2bad80-5b5e-11eb-87ab-6e0957163176.gif)
 
 
 ## URL
