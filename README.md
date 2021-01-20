@@ -20,26 +20,26 @@ http://18.225.12.27/
 
 
 ## 使用技術
-•Ruby 2.6.5
-•Ruby on Rails 6.0.3.4
-•MySQL 5.6.50
-•Nginx
-•AWS
-  ◦EC2
-  ◦S3
-•RSpec
-•Active Storage
-•Simple_calendar
-•Mini_magick
-•Image_processing
-•Rails_i18n
+•Ruby 2.6.5<br>
+•Ruby on Rails 6.0.3.4<br>
+•MySQL 5.6.50<br>
+•Nginx<br>
+•AWS<br>
+  ◦EC2<br>
+  ◦S3<br>
+•RSpec<br>
+•Active Storage<br>
+•Simple_calendar<br>
+•Mini_magick<br>
+•Image_processing<br>
+•Rails_i18n<br>
 
 ## 機能一覧
-•ユーザー登録、ログイン機能(devise)
-•投稿機能
-  ◦画像投稿(Active Storage, Ajax)
-  ◦動画投稿(Active Storage, Ajax)
-  ◦コメント投稿(Ajax)
-•スムーズスクロール機能(Jquery)
-•掲示板機能(Simple_calendar)
-•日本語化表示
+•ユーザー登録、ログイン機能(devise)<br>
+•投稿機能<br>
+  ◦画像投稿(Active Storage, Ajax)<br>
+  ◦動画投稿(Active Storage, Ajax)<br>
+  ◦コメント投稿(Ajax)<br>
+•スムーズスクロール機能(Jquery)<br>
+•掲示板機能(Simple_calendar)<br>
+•日本語化表示<br>
