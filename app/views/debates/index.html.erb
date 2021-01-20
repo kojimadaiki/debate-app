@@ -36,7 +36,7 @@
   </div>
 
   <% if coach_signed_in? || user_signed_in? %>
-  <div class="create inner" id="room">
+    <div class="create inner" id="room">
     <h3>討論予定のルーム一覧</h3>
     <p><span>※</span>参加するルーム名を選んでください</p>
     <% if user_signed_in? || coach_signed_in? %>
@@ -60,15 +60,15 @@
               <% if debate.name == board.title && debate.start_time == board.start_time %>
                 <td><%= link_to board.title, debate_comments_path(debate, board), class: "debate" %></td>
                 <% end %>
+               <% end %>
+               <% end %>
+              <% end %>
             <% end %>
-          <% end %>
-        <% end %>
-        <% end %>
-      </tr>
-      </table>
-    <% end %>
+          </tr>
+        </table>
+      <% end %>
+    </div>
   <% end %>
-  </div>
 
   <div id="question" class="QandA-2 inner">
     <h2><span>よくある質問</span></h2>
