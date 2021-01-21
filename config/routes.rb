@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
   resources :boards
   resources :debates, only: [:index, :new, :create, :destroy] do
     resources :comments, only: [:index, :create]

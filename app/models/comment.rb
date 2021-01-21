@@ -11,4 +11,8 @@ class Comment < ApplicationRecord
     video.attached? || image.attached?
   end
 
+  def template
+    ApplicationController.renderer.render partial: 'comments/post', locals: { comment: self }
+  end
+
 end
