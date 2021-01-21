@@ -17,13 +17,11 @@
   </div>
 </div>
 
-  <div class="chat-page inner">
+  <div class="chat-page inner" id="chat-page">
     <%= render 'post', comments: @commented %>
   </div>
 
-  <div class="list"></div>
-
-  <%= form_with model: [@debate, @comment], method: :post, id: "form", remote: true do |f| %>
+  <%= form_with model: [@debate, @comment], method: :post, class: "form-tag", remote: true do |f| %>
     <div class="form inner">
       <div class="image-video">
         <label class="form-image">

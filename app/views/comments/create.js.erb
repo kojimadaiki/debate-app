@@ -1,2 +1,2 @@
-document.getElementById('input').value = ''
+$("input").val("");
 $('.chat-page').html("<%= escape_javascript(render 'post', comments: @commented) %>")

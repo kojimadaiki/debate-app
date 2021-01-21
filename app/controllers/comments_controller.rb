@@ -23,7 +23,6 @@ class CommentsController < ApplicationController
       @comment = @debate.comments.new(user_comment_params)
     end
     if @comment.save
-      ActionCable.server.broadcast 'room_channel', comment: @comment.template
     else
       @comments = @debate.comments.includes(:coach)
       @comments = @debate.comments.includes(:user)
