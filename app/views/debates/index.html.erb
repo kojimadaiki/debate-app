@@ -46,7 +46,7 @@
         <th>開始時間</th>
         <th>ルーム名</th>
       </tr>
-        <% Board.all.each do |board| %>
+      <% Board.all.each do |board| %>
       <tr class="list">
         <% if board.coach_id.present? %>
           <td><%= board.name %></td>
