@@ -28,15 +28,15 @@
       <div class="image-video">
         <label class="form-image">
           <span><img src="/images/img.png"></span>
-          <%= f.file_field :image, class: 'hidden form__image-field js-form__image-field' %>
+          <%= f.file_field :image, class: 'hidden form__image-field js-form__image-field', id: "input" %>
         </label>
         <label class="form-video">
           <span><img src="/images/video2.png"></span>
-          <%= f.file_field :video, :accept => 'video/*', class: "form__video-field js-form__video-field hidden" %>
+          <%= f.file_field :video, :accept => 'video/*', class: "form__video-field js-form__video-field hidden", id: "input" %>
         </label>
       </div>
       <div class="form-content">
-        <%= f.text_field :content, class: 'form__text-field js-form__text-field hidden contents', placeholder: 'コメント入力', id: "content" %>
+        <%= f.text_field :content, class: 'form__text-field js-form__text-field hidden contents', placeholder: 'コメント入力', id: "input" %>
         <%= f.submit '▶︎', id: "submit", class: "submit" %>
       </div>
     </div>
